@@ -1,0 +1,178 @@
+{
+  "module": "java",
+  "description": "Top questions d'entretien Java (JDK/JVM, POO, exceptions, collections, concurrence, fonctionnel).",
+  "questions": [
+    {
+      "prompt": "What is Java?",
+      "answer_text": "Java is a high-level, object-oriented programming language developed by Sun Microsystems. It is known for its platform independence, as Java code can run on any platform with a Java Virtual Machine (JVM)."
+    },
+    {
+      "prompt": "What is the difference between JDK, JRE, and JVM?",
+      "answer_text": "JDK (Java Development Kit) is used for Java application development. JRE (Java Runtime Environment) is used to run Java applications. JVM (Java Virtual Machine) executes Java bytecode."
+    },
+    {
+      "prompt": "Explain the main features of Java.",
+      "answer_text": "Java features include platform independence, object-oriented, robust, secure, multithreaded, and high-performance."
+    },
+    {
+      "prompt": "What are the differences between abstract classes and interfaces?",
+      "answer_text": "Abstract classes can have constructors, fields, and method implementations, while interfaces only define method signatures. A class can extend only one abstract class but implement multiple interfaces.\n\nExemple :\nabstract class Animal {\n    String name;\n    Animal(String name) { this.name = name; }\n    abstract void sound();\n}\ninterface Flyable {\n    void fly();\n}"
+    },
+    {
+      "prompt": "How does Java achieve platform independence?",
+      "answer_text": "Java achieves platform independence by compiling source code into bytecode, which is then executed by the JVM specific to the platform."
+    },
+    {
+      "prompt": "Explain the 'final' keyword in Java.",
+      "answer_text": "The 'final' keyword is used to declare variables, methods, or classes as unchangeable. A final variable cannot be reassigned, a final method cannot be overridden, and a final class cannot be extended.\n\nExemple :\nfinal class FinalClass {\n    final int constantValue = 42;\n    final void doSomething() { /* ... */ }\n}"
+    },
+    {
+      "prompt": "What is the difference between 'equals()' and '==' in Java?",
+      "answer_text": "'==' compares object references, while 'equals()' compares the content (values) of objects. You can override 'equals()' to provide custom comparison logic.\n\nExemple :\nString str1 = new String(\"Hello\");\nString str2 = new String(\"Hello\");\nboolean ref = (str1 == str2);      // false\nboolean content = str1.equals(str2); // true"
+    },
+    {
+      "prompt": "What is a constructor, and why is it used in Java?",
+      "answer_text": "A constructor is a special method used to initialize objects. It is called when an object is created and ensures that the object is in a valid state.\n\nExemple :\nclass Person {\n    String name;\n    Person(String name) { this.name = name; }\n}"
+    },
+    {
+      "prompt": "What is the 'this' keyword in Java?",
+      "answer_text": "'this' refers to the current object within a class. It is often used to distinguish between instance variables and method parameters with the same name.\n\nExemple :\nclass MyClass {\n    int value;\n    MyClass(int value) { this.value = value; }\n}"
+    },
+    {
+      "prompt": "Explain method overloading and method overriding in Java.",
+      "answer_text": "Method overloading is when multiple methods in the same class have the same name but different parameters. Method overriding occurs when a subclass provides a specific implementation for a method defined in its superclass.\n\nExemple :\nclass MathOperations {\n    int add(int a, int b) { return a + b; }\n    double add(double a, double b) { return a + b; }\n}"
+    },
+    {
+      "prompt": "What is a static method and when is it used?",
+      "answer_text": "A static method belongs to the class rather than an instance. It can be called using the class name and is often used for utility functions that don't require instance-specific data.\n\nExemple :\nclass MathUtils {\n    static int add(int a, int b) { return a + b; }\n}"
+    },
+    {
+      "prompt": "What is the 'super' keyword in Java?",
+      "answer_text": "'super' is used to call a superclass's constructor or refer to a superclass's method or variable in the context of method overriding.\n\nExemple :\nclass Child extends Parent {\n    void show() {\n        super.show(); // Calls the parent's 'show'\n        System.out.println(\"Child class\");\n    }\n}"
+    },
+    {
+      "prompt": "Explain the 'try-catch-finally' block in Java for exception handling.",
+      "answer_text": "'try' encloses code that might throw an exception, 'catch' handles exceptions, and 'finally' specifies code that always executes, whether an exception occurs or not.\n\nExemple :\ntry {\n    int result = 10 / 0;\n} catch (ArithmeticException e) {\n    System.out.println(\"Error: \" + e.getMessage());\n} finally {\n    System.out.println(\"Cleanup code\");\n}"
+    },
+    {
+      "prompt": "What is the difference between checked and unchecked exceptions?",
+      "answer_text": "Checked exceptions are checked at compile-time and must be either caught or declared in the method signature using 'throws'. Unchecked exceptions (RuntimeExceptions) are not checked at compile-time.\n\nExemple :\ntry {\n    FileInputStream file = new FileInputStream(\"file.txt\");\n} catch (FileNotFoundException e) {\n    System.out.println(\"File not found.\");\n}\nint result = 10 / 0; // ArithmeticException (unchecked)"
+    },
+    {
+      "prompt": "Describe the 'NullPointerException' and how to prevent it.",
+      "answer_text": "'NullPointerException' occurs when trying to access methods or fields of a null object. To prevent it, ensure that object references are not null before accessing them.\n\nExemple :\nString name = null;\nif (name != null) {\n    int length = name.length();\n}"
+    },
+    {
+      "prompt": "What is the purpose of the 'finally' block in exception handling?",
+      "answer_text": "The 'finally' block ensures that essential cleanup code executes, such as closing files or releasing resources, regardless of whether an exception occurs or not."
+    },
+    {
+      "prompt": "What is the Java Collections Framework, and why is it important?",
+      "answer_text": "The Java Collections Framework provides a set of classes and interfaces for working with collections of objects. It's essential for efficient data manipulation and storage in Java applications.\n\nExemple :\nList<String> names = new ArrayList<>();\nnames.add(\"Alice\");\nnames.add(\"Bob\");\nSystem.out.println(names);"
+    },
+    {
+      "prompt": "Explain the difference between ArrayList and LinkedList.",
+      "answer_text": "ArrayList is a dynamic array that allows fast random access, while LinkedList is a doubly-linked list that is better suited for frequent insertions and deletions.\n\nExemple :\nList<String> arrayList = new ArrayList<>(); // good for random access\nList<String> linkedList = new LinkedList<>(); // good for insert/delete"
+    },
+    {
+      "prompt": "What is the 'hashCode()' method used for in Java?",
+      "answer_text": "'hashCode()' is used to calculate the hash code of an object, primarily used in data structures like HashMap and HashSet for efficient storage and retrieval.\n\nExemple :\nclass Student {\n    String name; int id;\n    @Override public int hashCode() { return Objects.hash(name, id); }\n}"
+    },
+    {
+      "prompt": "How does Java handle multiple threads, and what are the potential issues with multithreading?",
+      "answer_text": "Java supports multithreading through the 'Thread' class and the 'Runnable' interface. Potential issues include race conditions, deadlocks, and thread interference, which must be managed using synchronization.\n\nExemple :\nclass MyThread extends Thread {\n    public void run() { /* logic */ }\n}\nclass MyRunnable implements Runnable {\n    public void run() { /* logic */ }\n}"
+    },
+    {
+      "prompt": "What is synchronization in Java, and how is it achieved?",
+      "answer_text": "Synchronization ensures that only one thread accesses a block of code or a method at a time. It can be achieved using the 'synchronized' keyword or synchronized blocks.\n\nExemple :\nclass Example {\n    private int count = 0;\n    synchronized void increment() { count++; }\n    void performTask() { synchronized (this) { /* ... */ } }\n}"
+    },
+    {
+      "prompt": "Explain the 'volatile' keyword in Java.",
+      "answer_text": "'volatile' declares a variable whose value can be modified by multiple threads. It ensures the variable's value is always read from and written to main memory, avoiding thread caching.\n\nExemple :\nclass SharedResource {\n    volatile int value = 0;\n}"
+    },
+    {
+      "prompt": "What is the 'thread-safe' concept in Java, and how can you make a class thread-safe?",
+      "answer_text": "A thread-safe class ensures that its methods can be safely used by multiple threads without causing data corruption or inconsistencies. You can make a class thread-safe using synchronization, locks, or concurrent data structures.\n\nExemple :\nclass Counter {\n    private AtomicInteger count = new AtomicInteger(0);\n    void increment() { count.incrementAndGet(); }\n}"
+    },
+    {
+      "prompt": "Explain the 'wait' and 'notify' methods in Java for thread synchronization.",
+      "answer_text": "'wait' makes a thread pause execution until another thread invokes 'notify' or 'notifyAll' on the same object, waking up the waiting thread(s).\n\nExemple :\nclass SharedResource {\n    synchronized void produce() { /* produce */ notify(); }\n    synchronized void consume() throws InterruptedException { wait(); /* consume */ }\n}"
+    },
+    {
+      "prompt": "What is the Java Memory Model (JMM), and how does it relate to multithreading?",
+      "answer_text": "The JMM defines how threads interact with memory and how changes to variables are visible to other threads. It ensures that the JVM respects memory visibility guarantees."
+    },
+    {
+      "prompt": "What is 'garbage collection' in Java, and how does it work?",
+      "answer_text": "Garbage collection is the automatic process of identifying and reclaiming memory occupied by objects that are no longer referenced. Java uses different garbage collection algorithms like generational, mark-and-sweep, and G1."
+    },
+    {
+      "prompt": "Explain the 'finalize()' method in Java.",
+      "answer_text": "'finalize()' is a method called by the garbage collector before an object is reclaimed. It allows you to perform cleanup operations on resources like files or sockets."
+    },
+    {
+      "prompt": "What is the purpose of the 'assert' statement in Java?",
+      "answer_text": "The 'assert' statement tests assumptions about program behavior. It throws an AssertionError if the specified condition is false.\n\nExemple :\nint value = 10;\nassert value > 0 : \"Value must be positive\";"
+    },
+    {
+      "prompt": "Describe the 'enum' type in Java and its advantages.",
+      "answer_text": "An 'enum' is a special data type that defines a set of constant values. It provides type safety, readability, and can be used in switch statements.\n\nExemple :\nenum Day { SUNDAY, MONDAY, TUESDAY, WEDNESDAY, THURSDAY, FRIDAY, SATURDAY }"
+    },
+    {
+      "prompt": "What is the 'autoboxing' and 'unboxing' feature in Java?",
+      "answer_text": "Autoboxing is the automatic conversion of a primitive type to its corresponding wrapper class, and unboxing is the reverse process (e.g. 'int' to 'Integer' and vice versa).\n\nExemple :\nInteger num = 42; // Autoboxing\nint value = num;  // Unboxing"
+    },
+    {
+      "prompt": "What are Java annotations, and how are they used?",
+      "answer_text": "Annotations provide metadata about the code and can be used to add information to classes, methods, or variables. They are commonly used for configuration, documentation, and code generation.\n\nExemple :\n@Override public void performTask() { }\n@Deprecated public void oldMethod() { }"
+    },
+    {
+      "prompt": "Explain the 'try-with-resources' statement in Java for resource management.",
+      "answer_text": "'try-with-resources' automatically closes resources like files, sockets, or database connections when they are no longer needed. It simplifies resource management and prevents leaks.\n\nExemple :\ntry (FileInputStream file = new FileInputStream(\"file.txt\")) {\n    // read and process the file\n} catch (IOException e) { /* handle */ }"
+    },
+    {
+      "prompt": "How does Java support functional programming, and what are lambda expressions?",
+      "answer_text": "Java supports functional programming through lambda expressions, which allow you to define and pass functions as arguments to methods. They enable more concise and expressive code.\n\nExemple :\nFunction<Integer, Integer> square = (x) -> x * x;\nint result = square.apply(5); // 25"
+    },
+    {
+      "prompt": "What is the 'Stream' API in Java, and how is it used for data manipulation?",
+      "answer_text": "The 'Stream' API processes sequences of data in a functional style. It provides methods for filtering, mapping, reducing, and collecting data efficiently.\n\nExemple :\nList<Integer> numbers = Arrays.asList(1, 2, 3, 4, 5);\nint sum = numbers.stream().filter(n -> n % 2 == 0).mapToInt(Integer::intValue).sum();"
+    },
+    {
+      "prompt": "Explain the 'Reflection' API in Java.",
+      "answer_text": "The 'Reflection' API allows you to inspect and manipulate classes, methods, fields, and objects at runtime. It is often used for dynamic code generation and testing.\n\nExemple :\nClass<?> clazz = Class.forName(\"com.example.MyClass\");\nField[] fields = clazz.getDeclaredFields();"
+    },
+    {
+      "prompt": "What is the difference between an 'inner class' and a 'nested class'?",
+      "answer_text": "An inner class is a non-static class defined within another class, while a nested class is any class defined within another class. Inner classes have access to the enclosing class's members.\n\nExemple :\nclass Outer {\n    int outerValue;\n    class Inner { int innerValue = outerValue; }\n}"
+    },
+    {
+      "prompt": "What is the 'Executor' framework in Java, and how does it simplify thread management?",
+      "answer_text": "The 'Executor' framework provides a higher-level abstraction for managing threads. It decouples task submission from thread creation and management, making it easier to control thread execution.\n\nExemple :\nExecutor executor = Executors.newFixedThreadPool(2);\nexecutor.execute(() -> System.out.println(\"Task executed.\"));"
+    },
+    {
+      "prompt": "What are the 'Comparable' and 'Comparator' interfaces, and when are they used?",
+      "answer_text": "'Comparable' defines the natural ordering of objects within a class, while 'Comparator' allows you to define custom comparison logic for classes not under your control.\n\nExemple :\nclass Student implements Comparable<Student> {\n    int rollNumber;\n    @Override public int compareTo(Student o) { return this.rollNumber - o.rollNumber; }\n}"
+    },
+    {
+      "prompt": "Explain the 'fork-join' framework in Java for parallel processing.",
+      "answer_text": "The 'fork-join' framework is used for parallelism in Java, particularly for divide-and-conquer algorithms. It uses a pool of worker threads to execute tasks concurrently.\n\nExemple :\nForkJoinPool pool = new ForkJoinPool();\nlong result = pool.invoke(new MyRecursiveTask(1, 1000));"
+    },
+    {
+      "prompt": "What is 'Project Loom', and how does it impact Java's concurrency model?",
+      "answer_text": "Project Loom aims to simplify and improve concurrency in Java by introducing lightweight, user-mode threads (virtual threads / 'Fibers'). It promises more efficient and scalable concurrency.\n\nExemple :\nExecutorService executor = Executors.newVirtualThreadPerTaskExecutor();\nFuture<String> future = executor.submit(() -> \"Hello from a virtual thread!\");"
+    },
+    {
+      "prompt": "What is 'Project Valhalla', and how does it aim to enhance Java's performance?",
+      "answer_text": "Project Valhalla aims to introduce value types and reified generics to Java, improving memory efficiency and performance for certain data structures.\n\nExemple :\nvalue class Point { int x; int y; }"
+    },
+    {
+      "prompt": "Explain 'Project Panama' and how it improves Java's interaction with native code.",
+      "answer_text": "Project Panama focuses on improving the connection between Java and native code, making it easier to interoperate with libraries written in other languages like C and C++."
+    },
+    {
+      "prompt": "What is 'Project Metropolis', and how does it aim to improve Java's memory management and performance?",
+      "answer_text": "Project Metropolis explores implementing the JVM in Java itself (a 'Java-on-Java' approach) to improve maintainability and performance over the long term. Refer to the latest Java documentation for current status."
+    }
+  ]
+}

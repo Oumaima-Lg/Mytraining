@@ -1,0 +1,21 @@
+# env
+.env
+
+# python
+__pycache__/
+*.pyc
+.venv/
+venv/
+*.egg-info/
+.pytest_cache/
+
+# node / next
+node_modules/
+.next/
+out/
+npm-debug.log*
+yarn-error.log*
+
+# misc
+.DS_Store
+*.local
