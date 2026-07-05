@@ -43,12 +43,14 @@ export default function ModulesPage() {
           {modules.map((m) => (
             <div key={m.id} className="card">
               <div className="flex items-start justify-between">
-                <div>
-                  <h2 className="text-lg font-semibold">{m.name}</h2>
+                <Link href={`/modules/${m.id}`} className="group">
+                  <h2 className="text-lg font-semibold group-hover:text-brand">
+                    {m.name}
+                  </h2>
                   <p className="text-sm text-gray-400">
                     {m.question_count} question(s)
                   </p>
-                </div>
+                </Link>
                 <button
                   onClick={() => remove(m.id)}
                   className="text-sm text-red-500 hover:underline"
@@ -59,6 +61,12 @@ export default function ModulesPage() {
               {m.description && (
                 <p className="mt-2 text-sm text-gray-500">{m.description}</p>
               )}
+              <Link
+                href={`/modules/${m.id}`}
+                className="mt-3 inline-block text-sm font-medium text-brand hover:underline"
+              >
+                Réviser les questions/réponses →
+              </Link>
             </div>
           ))}
         </div>
