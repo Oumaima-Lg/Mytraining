@@ -146,7 +146,7 @@ export default function RunPage({ params }: { params: { runId: string } }) {
   }, [remaining, data, next]);
 
   if (!data || !question) {
-    return <p className="text-gray-400">Chargement de l&apos;entretien…</p>;
+    return <p className="text-gray-400 dark:text-slate-500">Chargement de l&apos;entretien…</p>;
   }
 
   return (
@@ -167,7 +167,7 @@ export default function RunPage({ params }: { params: { runId: string } }) {
           <div className="text-2xl font-bold tabular-nums">
             {formatTime(remaining)}
           </div>
-          <div className="text-xs text-gray-400">
+          <div className="text-xs text-gray-400 dark:text-slate-500">
             Question {index + 1} / {data.questions.length}
           </div>
         </div>
@@ -177,7 +177,7 @@ export default function RunPage({ params }: { params: { runId: string } }) {
         {/* Left: question / answer */}
         <div className="card space-y-4">
           {question.module_name && (
-            <span className="text-xs uppercase tracking-wide text-gray-400">
+            <span className="text-xs uppercase tracking-wide text-gray-400 dark:text-slate-500">
               {question.module_name}
             </span>
           )}
@@ -206,7 +206,7 @@ export default function RunPage({ params }: { params: { runId: string } }) {
               className="w-full rounded-lg bg-black"
             />
           ) : (
-            <p className="text-sm text-gray-400">Caméra désactivée</p>
+            <p className="text-sm text-gray-400 dark:text-slate-500">Caméra désactivée</p>
           )}
           {(data.interview.record_audio || data.interview.record_video) && (
             <p className="mt-2 flex items-center gap-2 text-xs text-red-500">
@@ -230,12 +230,12 @@ export default function RunPage({ params }: { params: { runId: string } }) {
 function AnswerBlock({ question }: { question: Question }) {
   return (
     <div className="space-y-3">
-      <p className="whitespace-pre-wrap text-gray-700">
+      <p className="whitespace-pre-wrap text-gray-700 dark:text-slate-200">
         {question.answer_text || "(aucune réponse fournie)"}
       </p>
       {question.attachments.length > 0 && (
         <div className="space-y-1">
-          <p className="text-sm font-medium text-gray-500">Documents joints :</p>
+          <p className="text-sm font-medium text-gray-500 dark:text-slate-400">Documents joints :</p>
           {question.attachments.map((a) => (
             <AttachmentLink key={a.id} attachment={a} />
           ))}
@@ -248,15 +248,51 @@ function AnswerBlock({ question }: { question: Question }) {
 function AttachmentLink({
   attachment,
 }: {
-  attachment: { id: number; filename: string; minio_key: string };
+  attachment: {
+    id: number;
+    filename: string;
+    minio_key: string;
+    content_type?: string;
+  };
 }) {
-  async function open() {
-    const url = await presignDownload(attachment.minio_key);
-    window.open(url, "_blank");
+  const [url, setUrl] = useState<string | null>(null);
+
+  useEffect(() => {
+    presignDownload(attachment.minio_key).then(setUrl).catch(() => {});
+  }, [attachment.minio_key]);
+
+  const isImage =
+    (attachment.content_type || "").startsWith("image/") ||
+    /\.(png|jpe?g|gif|webp|svg)$/i.test(attachment.filename);
+
+  if (isImage) {
+    return (
+      <a
+        href={url ?? undefined}
+        target="_blank"
+        rel="noreferrer"
+        title={`Ouvrir ${attachment.filename}`}
+        className="block"
+      >
+        {url ? (
+          // eslint-disable-next-line @next/next/no-img-element
+          <img
+            src={url}
+            alt={attachment.filename}
+            className="max-h-96 w-auto rounded-lg border border-black/10 dark:border-white/15"
+          />
+        ) : (
+          <span className="text-sm text-gray-400 dark:text-slate-500">
+            Chargement de {attachment.filename}…
+          </span>
+        )}
+      </a>
+    );
   }
+
   return (
     <button
-      onClick={open}
+      onClick={() => url && window.open(url, "_blank")}
       className="block text-sm text-brand hover:underline"
     >
       📎 {attachment.filename}

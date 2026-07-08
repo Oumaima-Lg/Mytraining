@@ -1,5 +1,5 @@
 {
-  "module": "java",
+  "module": "java-qa",
   "description": "Top questions d'entretien Java (JDK/JVM, POO, exceptions, collections, concurrence, fonctionnel).",
   "questions": [
     {
@@ -137,6 +137,22 @@
     {
       "prompt": "What is the 'Stream' API in Java, and how is it used for data manipulation?",
       "answer_text": "The 'Stream' API processes sequences of data in a functional style. It provides methods for filtering, mapping, reducing, and collecting data efficiently.\n\nExemple :\nList<Integer> numbers = Arrays.asList(1, 2, 3, 4, 5);\nint sum = numbers.stream().filter(n -> n % 2 == 0).mapToInt(Integer::intValue).sum();"
+    },
+    {
+      "prompt": "Explain the 'Optional' class in Java and its purpose.",
+      "answer_text": "'Optional' is a container class that can contain either a non-null value or be empty. It is used to avoid null pointer exceptions and indicate that a value may or may not be present.\n\nExemple :\nOptional<String> optionalName = Optional.ofNullable(getName());\nString result = optionalName.orElse(\"Default Name\");"
+    },
+    {
+      "prompt": "What is the 'StringBuilder' class, and how does it differ from 'String'?",
+      "answer_text": "'StringBuilder' is a mutable sequence of characters, while 'String' is immutable. 'StringBuilder' is used for efficient string manipulation without creating new objects.\n\nExemple :\nStringBuilder sb = new StringBuilder();\nsb.append(\"Hello, \");\nsb.append(\"World!\");\nString result = sb.toString(); // \"Hello, World!\""
+    },
+    {
+      "prompt": "What is a Java annotation processor, and how does it work?",
+      "answer_text": "An annotation processor is a tool that reads and processes annotations at compile-time. It can generate code, perform validation, or enhance classes based on annotations.\n\nExemple :\n@MyAnnotation\npublic class MyClass {\n    // Annotation-processed code\n}"
+    },
+    {
+      "prompt": "What is serialization in Java, and how is it implemented?",
+      "answer_text": "Serialization is the process of converting an object into a stream of bytes to store it or transmit it over a network. It is implemented by making a class implement the 'Serializable' interface.\n\nExemple :\nclass Student implements Serializable {\n    String name;\n    int rollNumber;\n    // ...\n}"
     },
     {
       "prompt": "Explain the 'Reflection' API in Java.",

@@ -4,11 +4,23 @@
 
 :root {
   --bg: #f4f2ee;
+  --surface: #ffffff;
+  --text: #1f2430;
+  --muted: #6b7280;
+  --border: rgba(0, 0, 0, 0.08);
+}
+
+.dark {
+  --bg: #0f141b;
+  --surface: #1a222c;
+  --text: #e5e9f0;
+  --muted: #9aa4b2;
+  --border: rgba(255, 255, 255, 0.1);
 }
 
 body {
   background: var(--bg);
-  color: #1f2430;
+  color: var(--text);
 }
 
 @layer components {
@@ -19,15 +31,22 @@ body {
     @apply btn bg-brand text-white hover:bg-brand-dark;
   }
   .btn-secondary {
-    @apply btn bg-white text-brand border border-brand/30 hover:bg-brand/5;
+    @apply btn text-brand border border-brand/30 hover:bg-brand/5;
+    background: var(--surface);
   }
   .card {
-    @apply rounded-2xl bg-white p-6 shadow-sm border border-black/5;
+    @apply rounded-2xl p-6 shadow-sm border;
+    background: var(--surface);
+    border-color: var(--border);
   }
   .input {
-    @apply w-full rounded-lg border border-black/10 px-3 py-2 outline-none focus:border-brand;
+    @apply w-full rounded-lg border px-3 py-2 outline-none focus:border-brand;
+    background: var(--surface);
+    border-color: var(--border);
+    color: var(--text);
   }
   .label {
-    @apply block text-sm font-medium text-gray-600 mb-1;
+    @apply block text-sm font-medium mb-1;
+    color: var(--muted);
   }
 }

@@ -1,0 +1,136 @@
+{
+  "module": "java-qa",
+  "media_dir": "seed_data/java_qa_media",
+  "questions": [
+    {
+      "prompt": "What is Java, and why is it not considered a pure object-oriented language?",
+      "answer_text": "Java is an object-oriented language created by Sun Microsystems (now owned by Oracle). It follows 'write once, run anywhere' (WORA): you write the program once and can run it on any device that has a JVM, without changing the code.\n\nIt is object-oriented because it organizes code around objects, but it is NOT a *pure* object-oriented language because:\n- it supports primitive types (int, char, boolean…) that are not objects — in a pure OO language everything is an object;\n- it supports static methods and variables, which belong to the class itself rather than to an object.\n\nStatic variable: shared by all instances, belongs to the class.\nStatic method: can be called without an object.\nInstance variable/method: each object has its own copy.\n\nThe JVM (Java Virtual Machine) lets Java run on any OS: compiled code becomes platform-independent bytecode, and the JVM translates that bytecode into machine code for the current system. That is why the same program runs on Windows, Linux, or Mac.",
+      "images": ["image1.png", "image2.png"]
+    },
+    {
+      "prompt": "What are the key components involved in running a Java program?",
+      "answer_text": "- JDK (Java Development Kit): the full toolkit to develop and run Java. Includes the compiler (javac), the JRE, and dev tools (debugger, documentation tools).\n- Java source code: the .java file that contains your code.\n- Compiler (javac): converts source code into bytecode (.class files).\n- Bytecode: the platform-independent code produced by the compiler.\n- JVM (Java Virtual Machine): loads and executes the bytecode, translating it into machine code.\n- JRE (Java Runtime Environment): provides the JVM plus the libraries needed to run Java programs.\n\nIn short: the JDK is used to write and compile code; the JRE/JVM are used to run the compiled bytecode.",
+      "images": ["image3.jpeg"]
+    },
+    {
+      "prompt": "What is the Java String Pool?",
+      "answer_text": "The String Pool is a special memory area (inside the heap) that stores String literals. If two Strings have the same content, they can share the same object in the pool to save memory.\n\nHeap memory: the area where Java stores all objects created at runtime; managed by the garbage collector, which frees memory when objects are no longer referenced.\nStack memory: a small workspace used to run methods and hold local variables.",
+      "images": ["image4.png", "image5.png", "image6.png", "image7.png"]
+    },
+    {
+      "prompt": "What is a package in Java?",
+      "answer_text": "A package is a way to group related classes and interfaces together. It helps organize code, avoid name conflicts, and manage access. Java has built-in packages like java.util, and you can also create your own custom packages.",
+      "images": ["image8.png", "image9.png"]
+    },
+    {
+      "prompt": "What is the main application class in Java (the main() method)?",
+      "answer_text": "The main application class is the class that contains the main() method — the entry point of the program. When you run a Java app, the JVM looks for this method to start execution.\n\nIt must be: public static void main(String[] args)\n- public: accessible to the JVM from anywhere.\n- static: the JVM can call it without creating an object.\n- void: it returns nothing.\n- main: the name the JVM looks for to start the program.\n- String[] args: an array holding command-line arguments passed when running the program.",
+      "images": []
+    },
+    {
+      "prompt": "Why isn't String a primitive data type in Java?",
+      "answer_text": "String is not primitive because it is a class — i.e. an object, not a simple value.\n\nPrimitive types (int, boolean, char…) are built into the language, are not objects, store their value directly in memory, and have no methods (you can't call .length() on an int). String, being an object, has methods and is stored as a reference.",
+      "images": []
+    },
+    {
+      "prompt": "What is Javadoc in Java?",
+      "answer_text": "Javadoc is a documentation tool that lets you write comments in a special format using tags (and snippets), which can be turned into HTML documentation. It explains what classes and methods do and is useful for teams and open-source projects. The @snippet tag simplifies including example code in the documentation.",
+      "images": ["image10.png", "image11.png"]
+    },
+    {
+      "prompt": "What is Hibernate?",
+      "answer_text": "Hibernate is a Java framework that provides Object-Relational Mapping (ORM): each Java class maps to a database table, each object to a row, and each field to a column. It lets you interact with the database using Java code instead of SQL, making it easier to store, retrieve, and manage data without writing much SQL.",
+      "images": []
+    },
+    {
+      "prompt": "What is an API, and what is a REST API?",
+      "answer_text": "API (Application Programming Interface) is a way for two programs to communicate with each other. A REST API is a type of API that uses HTTP methods (GET, POST, PUT, DELETE) to interact with data, usually in JSON format. It is commonly used in web and mobile applications.",
+      "images": []
+    },
+    {
+      "prompt": "What are the primitive data types in Java?",
+      "answer_text": "Java has 8 primitive types: 4 integers (byte, short, int, long), 2 floating-point (float, double), 1 character (char), and 1 boolean. They are stored directly in memory, unlike objects which are references. Each primitive has a corresponding wrapper class for object-oriented use.\n\nThe L suffix for long is required only if the value exceeds the int range. The f suffix for float is always required because decimal literals are double by default.",
+      "images": []
+    },
+    {
+      "prompt": "Is Java a compiled or an interpreted language?",
+      "answer_text": "Java uses a hybrid model that combines compilation and interpretation:\nSource code (.java) → compilation → bytecode (.class) → interpretation → execution.\n- Compilation: translating the code into another format (bytecode).\n- Interpretation: the JVM reads and executes the bytecode.\n- Execution: the program actually runs (sped up at runtime by the JIT compiler).",
+      "images": []
+    },
+    {
+      "prompt": "What is a Socket in Java?",
+      "answer_text": "A socket is a connection point that allows two programs to communicate with each other, typically over a network.",
+      "images": []
+    },
+    {
+      "prompt": "What is a thread in Java?",
+      "answer_text": "A thread is a lightweight execution unit that allows several tasks to run simultaneously within a program. It is a subprocess that shares memory with the other threads of the same process.",
+      "images": []
+    },
+    {
+      "prompt": "How do you create a thread in Java?",
+      "answer_text": "Three common ways:\n- Extend Thread: class MyThread extends Thread { public void run() { … } }\n- Implement Runnable: class MyTask implements Runnable { public void run() { … } }\n- Lambda: new Thread(() -> { /* code */ }).start();",
+      "images": []
+    },
+    {
+      "prompt": "What is the difference between Runnable and Thread?",
+      "answer_text": "Thread: you inherit from the Thread class, which limits flexibility (Java allows single inheritance only).\nRunnable: an interface, so your class can still extend another class — more reusable and generally preferred.",
+      "images": []
+    },
+    {
+      "prompt": "What is a Deadlock, and how do you avoid it?",
+      "answer_text": "Deadlock: a situation where two or more threads wait for each other indefinitely, so none can proceed.\n\nPrevention:\n- Lock ordering: always acquire locks in the same order.\n- Timeout: use tryLock() with a timeout instead of waiting indefinitely.\n- Avoid nested locks; use atomic variables when possible.\n\ntryLock() means 'try to acquire the lock, but give up if it's busy'.",
+      "images": []
+    },
+    {
+      "prompt": "What is Object-Oriented Programming (OOP) and its four pillars?",
+      "answer_text": "OOP organizes code around objects rather than functions and logic. A program is seen as a collection of objects; each object is an instance of a class and can interact with other objects.\n\nThe 4 pillars:\n- Encapsulation: group data and methods in the same class and control access.\n- Inheritance: allow a class to inherit properties and methods from another class.\n- Polymorphism: an object can take multiple forms; the same method call can produce different behaviors.\n- Abstraction: hide complex implementation details and expose only the essentials (via abstract classes and interfaces).",
+      "images": []
+    },
+    {
+      "prompt": "What are coupling and cohesion (loose coupling and high cohesion)?",
+      "answer_text": "Coupling: how much classes depend on each other. Cohesion: how much the elements inside a class work together toward one goal.\n\nLoose coupling: classes have minimal dependencies on each other, so changing one doesn't break others (e.g. depend on interfaces instead of concrete classes).\nHigh cohesion: all elements of a class serve a single, well-defined responsibility (e.g. a BankAccount class handles only banking operations, not email sending).",
+      "images": []
+    },
+    {
+      "prompt": "What is the difference between List, Set, and Map?",
+      "answer_text": "List: allows duplicates, gives index-based access, and maintains insertion order.\nSet: does not allow duplicates; order is not guaranteed (except TreeSet, which is sorted).\nMap: stores key-value pairs with unique keys.",
+      "images": []
+    },
+    {
+      "prompt": "What is the difference between HashMap and TreeMap?",
+      "answer_text": "HashMap is faster (O(1) average) but does not guarantee any order.\nTreeMap is slower (O(log n)) but automatically keeps its keys in sorted order.",
+      "images": []
+    },
+    {
+      "prompt": "What does a HashSet do if you add a duplicate element?",
+      "answer_text": "HashSet silently ignores the duplicate and returns false, because it uses hashCode() and equals() to check uniqueness. The set's size stays unchanged.",
+      "images": []
+    },
+    {
+      "prompt": "Why does HashMap use hashCode() and equals()?",
+      "answer_text": "hashCode() quickly determines which bucket an element goes into (for performance). equals() checks exact equality to avoid duplicates and to resolve collisions. A collision happens when two different objects have the same hashCode() and therefore land in the same bucket.",
+      "images": []
+    },
+    {
+      "prompt": "What is an exception, and how does it differ from an error?",
+      "answer_text": "An exception is an abnormal event that interrupts the normal flow of a program's execution, and can usually be handled. An Error is a serious problem at the JVM/system level that your program generally cannot recover from.",
+      "images": []
+    },
+    {
+      "prompt": "What is the difference between Aggregation and Composition?",
+      "answer_text": "Both are 'has-a' relationships.\nAggregation: a weak 'has-a' — the child can exist without the parent. Example: a university has professors; the professors still exist if the university closes.\nComposition: a strong 'has-a' — the child cannot exist without the parent. Example: a house has rooms; if the house is destroyed, the rooms disappear too.",
+      "images": []
+    },
+    {
+      "prompt": "What is the difference between implicit and explicit conversion in Java?",
+      "answer_text": "Implicit conversion: automatic conversion done by the compiler without programmer intervention (widening, e.g. int → long).\nExplicit conversion: forced by the programmer using the cast operator (type), e.g. (int) myDouble (narrowing).",
+      "images": []
+    },
+    {
+      "prompt": "What is the difference between Client-Server and Peer-to-Peer architectures?",
+      "answer_text": "Client-Server: a client requests a service and a server provides it. Examples: websites (browser ↔ web server), email (client ↔ SMTP/POP server), databases (app ↔ DB server), REST APIs (mobile ↔ API server).\nPeer-to-Peer (P2P): all participants are equal and each can be both client and server. Examples: file sharing (BitTorrent), decentralized chat, peer-to-peer VoIP.",
+      "images": []
+    }
+  ]
+}

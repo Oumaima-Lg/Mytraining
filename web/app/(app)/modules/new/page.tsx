@@ -192,16 +192,16 @@ function QuestionBuilder({
               Questions ajoutées ({questions.length})
             </h3>
             {questions.length === 0 ? (
-              <p className="text-sm text-gray-400">Aucune question pour l&apos;instant.</p>
+              <p className="text-sm text-gray-400 dark:text-slate-500">Aucune question pour l&apos;instant.</p>
             ) : (
               <ol className="space-y-2 text-sm">
                 {questions.map((q, i) => (
-                  <li key={q.id} className="border-b border-black/5 pb-2">
+                  <li key={q.id} className="border-b border-black/5 dark:border-white/10 pb-2">
                     <span className="font-medium">
                       {i + 1}. {q.prompt}
                     </span>
                     {q.attachments.length > 0 && (
-                      <span className="ml-2 text-xs text-gray-400">
+                      <span className="ml-2 text-xs text-gray-400 dark:text-slate-500">
                         📎 {q.attachments.length}
                       </span>
                     )}

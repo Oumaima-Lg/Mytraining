@@ -29,6 +29,7 @@ class Config:
     MINIO_ROOT_PASSWORD = os.environ.get("MINIO_ROOT_PASSWORD", "minioadmin")
     MINIO_BUCKET = os.environ.get("MINIO_BUCKET", "prep-entretien")
     MINIO_SECURE = os.environ.get("MINIO_SECURE", "false").lower() == "true"
+    MINIO_REGION = os.environ.get("MINIO_REGION", "us-east-1")
 
     # AI
     ANTHROPIC_API_KEY = os.environ.get("ANTHROPIC_API_KEY", "")

@@ -68,7 +68,7 @@ export default function RegisterPage() {
         <button className="btn-primary w-full" disabled={loading}>
           {loading ? "Création…" : "Créer mon compte"}
         </button>
-        <p className="text-sm text-gray-500">
+        <p className="text-sm text-gray-500 dark:text-slate-400">
           Déjà inscrit ?{" "}
           <Link href="/login" className="text-brand">
             Se connecter

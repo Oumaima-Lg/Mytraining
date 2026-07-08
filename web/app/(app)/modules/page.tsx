@@ -33,9 +33,9 @@ export default function ModulesPage() {
       </div>
 
       {loading ? (
-        <p className="text-gray-400">Chargement…</p>
+        <p className="text-gray-400 dark:text-slate-500">Chargement…</p>
       ) : modules.length === 0 ? (
-        <div className="card text-center text-gray-500">
+        <div className="card text-center text-gray-500 dark:text-slate-400">
           Aucun module. Créez-en un pour commencer.
         </div>
       ) : (
@@ -47,7 +47,7 @@ export default function ModulesPage() {
                   <h2 className="text-lg font-semibold group-hover:text-brand">
                     {m.name}
                   </h2>
-                  <p className="text-sm text-gray-400">
+                  <p className="text-sm text-gray-400 dark:text-slate-500">
                     {m.question_count} question(s)
                   </p>
                 </Link>
@@ -59,7 +59,7 @@ export default function ModulesPage() {
                 </button>
               </div>
               {m.description && (
-                <p className="mt-2 text-sm text-gray-500">{m.description}</p>
+                <p className="mt-2 text-sm text-gray-500 dark:text-slate-400">{m.description}</p>
               )}
               <Link
                 href={`/modules/${m.id}`}

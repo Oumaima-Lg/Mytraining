@@ -10,7 +10,7 @@ export default function LogoutButton() {
     router.refresh();
   }
   return (
-    <button onClick={logout} className="text-gray-500 hover:text-red-600">
+    <button onClick={logout} className="text-gray-500 dark:text-slate-400 hover:text-red-600">
       Déconnexion
     </button>
   );

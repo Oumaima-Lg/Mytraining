@@ -45,7 +45,7 @@ export default function ResultsPage({
     }
   }
 
-  if (!run) return <p className="text-gray-400">Chargement…</p>;
+  if (!run) return <p className="text-gray-400 dark:text-slate-500">Chargement…</p>;
 
   const questionById = new Map(
     run.interview.questions.map((q) => [q.id, q]),
@@ -63,7 +63,7 @@ export default function ResultsPage({
       {error && <p className="text-sm text-red-600">{error}</p>}
 
       <div className="card flex items-center justify-between">
-        <p className="text-sm text-gray-500">
+        <p className="text-sm text-gray-500 dark:text-slate-400">
           Lancez l&apos;évaluation IA pour transcrire vos réponses et obtenir un
           score et des conseils.
         </p>
@@ -77,7 +77,7 @@ export default function ResultsPage({
       </div>
 
       {run.recordings.length === 0 ? (
-        <div className="card text-gray-500">
+        <div className="card text-gray-500 dark:text-slate-400">
           Aucune réponse enregistrée pour cet entretien.
         </div>
       ) : (
@@ -105,10 +105,10 @@ export default function ResultsPage({
 
                 {rec.transcript && (
                   <div>
-                    <p className="text-xs font-medium uppercase text-gray-400">
+                    <p className="text-xs font-medium uppercase text-gray-400 dark:text-slate-500">
                       Votre réponse (transcription)
                     </p>
-                    <p className="whitespace-pre-wrap text-sm text-gray-600">
+                    <p className="whitespace-pre-wrap text-sm text-gray-600 dark:text-slate-300">
                       {rec.transcript}
                     </p>
                   </div>
@@ -116,17 +116,17 @@ export default function ResultsPage({
 
                 {rec.ai_feedback && (
                   <div>
-                    <p className="text-xs font-medium uppercase text-gray-400">
+                    <p className="text-xs font-medium uppercase text-gray-400 dark:text-slate-500">
                       Retour de l&apos;IA
                     </p>
-                    <p className="whitespace-pre-wrap text-sm text-gray-700">
+                    <p className="whitespace-pre-wrap text-sm text-gray-700 dark:text-slate-200">
                       {rec.ai_feedback}
                     </p>
                   </div>
                 )}
 
                 {rec.ai_score === null && (
-                  <p className="text-sm text-gray-400">
+                  <p className="text-sm text-gray-400 dark:text-slate-500">
                     Non encore évalué.
                   </p>
                 )}

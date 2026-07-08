@@ -19,6 +19,11 @@ def _client(public: bool = False) -> Minio:
         access_key=cfg["MINIO_ROOT_USER"],
         secret_key=cfg["MINIO_ROOT_PASSWORD"],
         secure=cfg["MINIO_SECURE"],
+        # Pin the region so presigning never does a live "get bucket region"
+        # call. The public endpoint (localhost:9000) isn't reachable from inside
+        # the api container, so that lookup would fail — but presigning itself
+        # needs no network access once the region is known.
+        region=cfg.get("MINIO_REGION", "us-east-1"),
     )
 
 

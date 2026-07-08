@@ -58,7 +58,7 @@ export default function LoginPage() {
         <button className="btn-primary w-full" disabled={loading}>
           {loading ? "Connexion…" : "Se connecter"}
         </button>
-        <p className="text-sm text-gray-500">
+        <p className="text-sm text-gray-500 dark:text-slate-400">
           Pas de compte ?{" "}
           <Link href="/register" className="text-brand">
             Créer un compte
