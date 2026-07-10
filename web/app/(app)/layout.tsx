@@ -28,6 +28,12 @@ export default function AppLayout({
             >
               Passer un entretien
             </Link>
+            <Link
+              href="/history"
+              className="text-gray-600 hover:text-brand dark:text-gray-300"
+            >
+              Historique
+            </Link>
             <LogoutButton />
             <ThemeToggle />
           </nav>

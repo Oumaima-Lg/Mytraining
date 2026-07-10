@@ -105,6 +105,32 @@ def start_run(interview_id):
     ), 201
 
 
+@bp.get("/runs")
+def list_runs():
+    """History: all of the user's interview runs, newest first, with a score summary."""
+    user = current_user()
+    runs = (
+        InterviewRun.query.filter_by(user_id=user.id)
+        .order_by(InterviewRun.started_at.desc())
+        .all()
+    )
+    out = []
+    for run in runs:
+        scores = [r.ai_score for r in run.recordings if r.ai_score is not None]
+        out.append({
+            "id": run.id,
+            "interview_id": run.interview_id,
+            "interview_name": run.interview.name if run.interview else "Entretien supprimé",
+            "status": run.status,
+            "started_at": run.started_at.isoformat(),
+            "finished_at": run.finished_at.isoformat() if run.finished_at else None,
+            "recording_count": len(run.recordings),
+            "scored_count": len(scores),
+            "avg_score": round(sum(scores) / len(scores)) if scores else None,
+        })
+    return jsonify(runs=out)
+
+
 @bp.get("/runs/<int:run_id>")
 def get_run(run_id):
     user = current_user()

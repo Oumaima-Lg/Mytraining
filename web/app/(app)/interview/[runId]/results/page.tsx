@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 import Link from "next/link";
-import { api, Recording, Question } from "@/lib/api";
+import { api, presignDownload, Recording, Question } from "@/lib/api";
 
 type RunData = {
   id: number;
@@ -103,6 +103,17 @@ export default function ResultsPage({
                   )}
                 </div>
 
+                {rec.minio_key ? (
+                  <MediaPlayer
+                    minioKey={rec.minio_key}
+                    mediaType={rec.media_type}
+                  />
+                ) : (
+                  <p className="text-sm text-gray-400 dark:text-slate-500">
+                    Aucun enregistrement pour cette réponse.
+                  </p>
+                )}
+
                 {rec.transcript && (
                   <div>
                     <p className="text-xs font-medium uppercase text-gray-400 dark:text-slate-500">
@@ -136,6 +147,46 @@ export default function ResultsPage({
         </div>
       )}
     </div>
+  );
+}
+
+function MediaPlayer({
+  minioKey,
+  mediaType,
+}: {
+  minioKey: string;
+  mediaType: string;
+}) {
+  const [url, setUrl] = useState<string | null>(null);
+  const [error, setError] = useState(false);
+
+  useEffect(() => {
+    presignDownload(minioKey)
+      .then(setUrl)
+      .catch(() => setError(true));
+  }, [minioKey]);
+
+  if (error)
+    return (
+      <p className="text-sm text-red-600">
+        Impossible de charger l&apos;enregistrement.
+      </p>
+    );
+  if (!url)
+    return (
+      <p className="text-sm text-gray-400 dark:text-slate-500">
+        Chargement de l&apos;enregistrement…
+      </p>
+    );
+
+  return mediaType === "audio" ? (
+    <audio controls src={url} className="w-full" />
+  ) : (
+    <video
+      controls
+      src={url}
+      className="w-full max-w-md rounded-lg bg-black"
+    />
   );
 }
 

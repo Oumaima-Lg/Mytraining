@@ -54,6 +54,18 @@ export type Recording = {
   ai_feedback: string | null;
 };
 
+export type RunSummary = {
+  id: number;
+  interview_id: number;
+  interview_name: string;
+  status: string;
+  started_at: string;
+  finished_at: string | null;
+  recording_count: number;
+  scored_count: number;
+  avg_score: number | null;
+};
+
 async function req<T>(path: string, options: RequestInit = {}): Promise<T> {
   const res = await fetch(`/api/proxy/${path}`, {
     headers: { "Content-Type": "application/json" },
