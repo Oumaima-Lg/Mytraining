@@ -1,0 +1,42 @@
+{
+  "module": "Design Patterns",
+  "media_dir": "seed_data/design_media",
+  "description": "Design patterns (patrons de conception) : catégories et patterns clés — Factory Method, Abstract Factory, Singleton, Dependency Injection, Observer (avec schémas et exemples de code).",
+  "questions": [
+    {
+      "prompt": "What is a design pattern?",
+      "answer_text": "A design pattern in software engineering is a general, reusable solution to a commonly occurring problem within software design. It is a proven template you adapt to your context — not a finished piece of code, but a description of how to solve a problem.",
+      "images": ["design_image1.jpeg", "design_image2.png"]
+    },
+    {
+      "prompt": "What are the categories of design patterns?",
+      "answer_text": "Design patterns are grouped into 3 categories:\n- Creational: manage object creation (Singleton, Factory, Builder, etc.).\n- Structural: organize the composition of classes and objects (Adapter, Decorator, etc.).\n- Behavioral: define communication between objects (Observer, Strategy, etc.).",
+      "images": ["design_image3.jpeg", "design_image4.png", "design_image5.png"]
+    },
+    {
+      "prompt": "What is the Factory Method pattern?",
+      "answer_text": "The Factory Method is a creational pattern that provides an interface for creating objects in a superclass, but lets subclasses alter the type of objects that will be created. It centralizes and delegates object creation behind an interface, decoupling it from the client code that uses the objects.\n\nKey participants:\n- Product: defines the interface of the objects the factory method creates.\n- Concrete Product: implements the Product interface.\n- Creator: declares the factory method, which returns an object of type Product (may provide a default implementation).\n- Concrete Creator: overrides the factory method to return a specific Concrete Product.\n\n(The attached schemas show the code with and without the Factory pattern.)",
+      "images": ["design_image6.png", "design_image7.png", "design_image8.png", "design_image9.png", "design_image10.png", "design_image11.png", "design_image12.png", "design_image13.png", "design_image14.png", "design_image15.png", "design_image16.png", "design_image17.png"]
+    },
+    {
+      "prompt": "What is the Abstract Factory pattern (and how does it differ from Factory Method)?",
+      "answer_text": "The Abstract Factory is a creational pattern that provides an interface to create families of related / coherent objects without specifying their concrete classes.\n\nFactory Method vs Abstract Factory:\n- Factory Method = one factory, one product.\n- Abstract Factory = one factory, one family of coherent products.",
+      "images": ["design_image18.png", "design_image19.png", "design_image20.png", "design_image21.png"]
+    },
+    {
+      "prompt": "What is the Singleton pattern?",
+      "answer_text": "The Singleton is a creational pattern that ensures a class has only one instance in the entire application and provides a global access point to that instance. The constructor is made private to prevent the creation of multiple instances.",
+      "images": ["design_image22.png", "design_image23.png"]
+    },
+    {
+      "prompt": "What is Dependency Injection?",
+      "answer_text": "Dependency Injection (DI) is a design pattern that lets you inject an object's dependencies from the outside rather than creating them directly inside the class. It reduces coupling, improves testability, and is the core of the Spring Framework.",
+      "images": ["design_image24.png", "design_image25.png", "design_image26.jpeg"]
+    },
+    {
+      "prompt": "What is the Observer pattern?",
+      "answer_text": "The Observer pattern (also called Publisher-Subscriber or Pub-Sub) is a behavioral pattern that defines a one-to-many dependency between objects. When one object (the Subject) changes state, all its dependents (the Observers) are automatically notified and updated.\n\nAnalogy: a newspaper (Subject) and its subscribers (Observers) — the newspaper publishes a new edition, all subscribers are automatically notified, and each may react differently to the information.",
+      "images": ["design_image27.png", "design_image28.png", "design_image29.png"]
+    }
+  ]
+}

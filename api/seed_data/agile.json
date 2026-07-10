@@ -1,0 +1,42 @@
+{
+  "module": "Agile",
+  "media_dir": "seed_data/agile_media",
+  "description": "Méthodes Agiles : Scrum (rôles, artefacts, événements) et Kanban, avec comparatif Scrum vs Kanban.",
+  "questions": [
+    {
+      "prompt": "Qu'est-ce que Scrum ?",
+      "answer_text": "Scrum est une méthode Agile qui organise le travail en petites périodes appelées « sprints », généralement de 1 à 4 semaines. À la fin de chaque sprint, on livre une version du produit fonctionnelle et testée.",
+      "images": []
+    },
+    {
+      "prompt": "Quels sont les rôles dans Scrum ?",
+      "answer_text": "- Product Owner (PO) : représente le client / les utilisateurs finaux, définit les besoins (User Stories) et priorise le Product Backlog.\n- Scrum Master : fait respecter les règles de Scrum, facilite la communication et supprime les obstacles.\n- Équipe de développement : développeurs, designers, testeurs… ; ils s'organisent eux-mêmes pendant chaque sprint.",
+      "images": []
+    },
+    {
+      "prompt": "Quels sont les principaux artefacts (éléments) de Scrum ?",
+      "answer_text": "- Product Backlog : la liste complète des fonctionnalités à développer, triées par priorité.\n- Sprint Backlog : les tâches sélectionnées pour le sprint en cours.\n- Sprint : une période fixe (ex : 2 semaines) où l'équipe développe des fonctionnalités complètes et testées.\n- Incrément : le résultat du sprint, une version utilisable du produit.",
+      "images": []
+    },
+    {
+      "prompt": "Quel est le cycle d'un Sprint (les événements Scrum) ?",
+      "answer_text": "- Sprint Planning (planification) : on choisit les tâches à faire pendant le sprint.\n- Daily Scrum (réunion quotidienne, ~15 min) : chacun dit ce qu'il a fait, ce qu'il va faire et les blocages éventuels.\n- Sprint Review (revue) : on présente le travail terminé au Product Owner et aux parties prenantes.\n- Sprint Retrospective : l'équipe discute de ce qui a bien fonctionné et de ce qui doit être amélioré pour le prochain sprint.",
+      "images": ["agile_image1.png"]
+    },
+    {
+      "prompt": "Qu'est-ce que Kanban ?",
+      "answer_text": "Kanban est une méthode visuelle de gestion des tâches basée sur un tableau divisé en colonnes pour suivre l'évolution du travail. C'est une méthode souple et simple à mettre en place, utilisée en informatique mais aussi en gestion de projet, RH, marketing, etc.\n\nUn tableau Kanban a 3 colonnes principales : À faire (To Do), En cours (Doing), Terminé (Done). Chaque tâche est une carte qu'on déplace de gauche à droite.",
+      "images": []
+    },
+    {
+      "prompt": "Quels sont les objectifs de Kanban et la règle WIP ?",
+      "answer_text": "Objectifs : visualiser clairement le travail, limiter le travail en cours pour éviter la surcharge, améliorer la fluidité du processus et identifier rapidement les blocages.\n\nRègle importante — WIP (Work In Progress) : on limite le nombre de tâches en cours (ex : pas plus de 3 dans « En cours »). Cela évite la dispersion et augmente la productivité.\n\nContrairement à Scrum, Kanban n'a pas de rôles stricts : l'équipe s'organise librement.",
+      "images": []
+    },
+    {
+      "prompt": "Quelle est la différence entre Scrum et Kanban ?",
+      "answer_text": "- Sprints (périodes) : Scrum oui / Kanban non.\n- Rôles définis : Scrum oui (PO, SM, Dev) / Kanban non.\n- Planification : Scrum fixe / Kanban flexible.\n- Tableaux visuels : Scrum optionnel / Kanban central.\n- Limite de tâches (WIP) : Scrum non (par défaut) / Kanban oui.\n- Adapté pour : Scrum → projets complexes ; Kanban → travail continu.",
+      "images": []
+    }
+  ]
+}

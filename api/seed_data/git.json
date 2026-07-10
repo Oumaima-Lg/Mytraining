@@ -1,0 +1,32 @@
+{
+  "module": "Git",
+  "media_dir": "seed_data/git_media",
+  "description": "Git : contrôle de version distribué — concepts fondamentaux, HEAD vs main, branches locales/distantes, git pull vs fetch (avec schémas).",
+  "questions": [
+    {
+      "prompt": "What is Git and what are its key features?",
+      "answer_text": "Git is a distributed version control system (DVCS) that tracks changes to files and coordinates work between multiple people on a development project.\n\nKey features:\n- Version Control: tracks the complete history of changes, lets you revert to previous versions, and compare differences.\n- Distributed System: each developer has a complete copy of the project, works offline, no single point of failure.\n- Collaboration: multiple developers work simultaneously; Git merges compatible changes automatically and manages conflicts.",
+      "images": ["git_image1.png"]
+    },
+    {
+      "prompt": "What are the fundamental Git concepts (Repository, Commit, Branch, Merge, Clone)?",
+      "answer_text": "- Repository: a folder containing your project and its Git history.\n- Commit: a snapshot of your project at a given point in time.\n- Branch: an independent line of development.\n- Merge: merging two branches together.\n- Clone: a local copy of a remote repository.",
+      "images": []
+    },
+    {
+      "prompt": "What is the difference between HEAD and main (and attached vs detached HEAD)?",
+      "answer_text": "HEAD is a pointer indicating where you currently are in your Git repository. There is only one HEAD per repository; it moves when you change branches or commits (it points to the commit you're working on).\nmain is the name of a branch — usually the main branch of the project.\n\n- Attached HEAD (normal): HEAD → main → commit abc123 (HEAD points to a branch that points to a commit).\n- Detached HEAD: HEAD → commit abc123 (HEAD points directly to a commit, not to a branch).",
+      "images": ["git_image2.png", "git_image3.png"]
+    },
+    {
+      "prompt": "What is the difference between main and origin/main?",
+      "answer_text": "- main (local branch): your local branch that exists on your machine.\n- origin/main (remote tracking branch): a local reference to the main branch of the remote repository (it reflects the last known state of the remote).",
+      "images": []
+    },
+    {
+      "prompt": "What is the difference between git pull and git fetch?",
+      "answer_text": "- git fetch: downloads the latest changes from the remote repository into your remote-tracking branches (e.g. origin/main), but does NOT modify your working branch. You can review before merging.\n- git pull: does a git fetch AND then merges the changes into your current branch (git pull = git fetch + git merge). It updates your working branch immediately.",
+      "images": ["git_image4.gif", "git_image5.png", "git_image6.jpeg", "git_image7.jpeg"]
+    }
+  ]
+}

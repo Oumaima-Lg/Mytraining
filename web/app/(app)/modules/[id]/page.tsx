@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 import Link from "next/link";
-import { api, presignDownload, Module, Question } from "@/lib/api";
+import { api, presignDownload, uploadFile, Module, Question } from "@/lib/api";
 
 export default function ModuleDetailPage({
   params,
@@ -58,6 +58,18 @@ export default function ModuleDetailPage({
     );
   }
 
+  function handleQuestionAdded(q: Question) {
+    setModule((m) =>
+      m
+        ? {
+            ...m,
+            questions: [...(m.questions ?? []), q],
+            question_count: m.question_count + 1,
+          }
+        : m,
+    );
+  }
+
   return (
     <div className="space-y-6">
       <div className="flex flex-wrap items-center justify-between gap-3">
@@ -68,13 +80,10 @@ export default function ModuleDetailPage({
           <ModuleTitle
             module={module}
             count={questions.length}
-            onRenamed={(name) =>
-              setModule((m) => (m ? { ...m, name } : m))
+            onUpdated={(name, description) =>
+              setModule((m) => (m ? { ...m, name, description } : m))
             }
           />
-          {module.description && (
-            <p className="text-sm text-gray-500 dark:text-slate-400">{module.description}</p>
-          )}
         </div>
         <label className="flex cursor-pointer items-center gap-2 text-sm">
           <input
@@ -86,6 +95,8 @@ export default function ModuleDetailPage({
           Mode révision (cacher les réponses)
         </label>
       </div>
+
+      <AddQuestion moduleId={module.id} onAdded={handleQuestionAdded} />
 
       {questions.length === 0 ? (
         <div className="card text-gray-500 dark:text-slate-400">
@@ -110,17 +121,135 @@ export default function ModuleDetailPage({
   );
 }
 
+function AddQuestion({
+  moduleId,
+  onAdded,
+}: {
+  moduleId: number;
+  onAdded: (q: Question) => void;
+}) {
+  const [open, setOpen] = useState(false);
+  const [prompt, setPrompt] = useState("");
+  const [answer, setAnswer] = useState("");
+  const [files, setFiles] = useState<FileList | null>(null);
+  const [busy, setBusy] = useState(false);
+  const [error, setError] = useState("");
+
+  function reset() {
+    setPrompt("");
+    setAnswer("");
+    setFiles(null);
+    setError("");
+  }
+
+  async function submit() {
+    if (!prompt.trim()) {
+      setError("L'intitulé de la question est requis");
+      return;
+    }
+    setBusy(true);
+    setError("");
+    try {
+      const { question } = await api.post<{ question: Question }>(
+        `modules/${moduleId}/questions`,
+        { prompt: prompt.trim(), answer_text: answer },
+      );
+      const attachments = [...question.attachments];
+      if (files) {
+        for (const file of Array.from(files)) {
+          const { key } = await uploadFile(file, "attachment");
+          const { attachment } = await api.post<{
+            attachment: Question["attachments"][number];
+          }>(`modules/${moduleId}/questions/${question.id}/attachments`, {
+            filename: file.name,
+            minio_key: key,
+            content_type: file.type,
+            size: file.size,
+          });
+          attachments.push(attachment);
+        }
+      }
+      onAdded({ ...question, attachments });
+      reset();
+      setOpen(false);
+    } catch (err) {
+      setError((err as Error).message);
+    } finally {
+      setBusy(false);
+    }
+  }
+
+  if (!open) {
+    return (
+      <button onClick={() => setOpen(true)} className="btn-primary">
+        + Ajouter une question
+      </button>
+    );
+  }
+
+  return (
+    <div className="card space-y-3">
+      <h3 className="font-semibold">Nouvelle question</h3>
+      {error && <p className="text-sm text-red-600">{error}</p>}
+      <div>
+        <label className="label">Question</label>
+        <textarea
+          className="input"
+          rows={2}
+          value={prompt}
+          onChange={(e) => setPrompt(e.target.value)}
+          autoFocus
+        />
+      </div>
+      <div>
+        <label className="label">Réponse</label>
+        <textarea
+          className="input"
+          rows={5}
+          value={answer}
+          onChange={(e) => setAnswer(e.target.value)}
+        />
+      </div>
+      <div>
+        <label className="label">Pièces jointes (images, PDF, schémas…)</label>
+        <input
+          type="file"
+          multiple
+          className="text-sm"
+          onChange={(e) => setFiles(e.target.files)}
+        />
+      </div>
+      <div className="flex gap-2">
+        <button onClick={submit} className="btn-primary text-sm" disabled={busy}>
+          {busy ? "Enregistrement…" : "Ajouter"}
+        </button>
+        <button
+          onClick={() => {
+            reset();
+            setOpen(false);
+          }}
+          className="btn-secondary text-sm"
+          disabled={busy}
+        >
+          Annuler
+        </button>
+      </div>
+    </div>
+  );
+}
+
 function ModuleTitle({
   module,
   count,
-  onRenamed,
+  onUpdated,
 }: {
   module: Module;
   count: number;
-  onRenamed: (name: string) => void;
+  onUpdated: (name: string, description: string) => void;
 }) {
   const [editing, setEditing] = useState(false);
   const [name, setName] = useState(module.name);
+  const [description, setDescription] = useState(module.description);
   const [busy, setBusy] = useState(false);
   const [error, setError] = useState("");
 
@@ -130,11 +259,15 @@ function ModuleTitle({
       setError("Le nom du module est requis");
       return;
     }
+    const desc = description.trim();
     setBusy(true);
     setError("");
     try {
-      await api.patch(`modules/${module.id}`, { name: trimmed });
-      onRenamed(trimmed);
+      await api.patch(`modules/${module.id}`, {
+        name: trimmed,
+        description: desc,
+      });
+      onUpdated(trimmed, desc);
       setEditing(false);
     } catch (err) {
       setError((err as Error).message);
@@ -143,49 +276,68 @@ function ModuleTitle({
     }
   }
 
+  function cancel() {
+    setName(module.name);
+    setDescription(module.description);
+    setError("");
+    setEditing(false);
+  }
+
   if (editing) {
     return (
       <div className="mt-1 space-y-2">
-        <div className="flex flex-wrap items-center gap-2">
+        <div>
+          <label className="label">Nom du module</label>
           <input
-            className="input max-w-xs"
+            className="input max-w-md"
             value={name}
             onChange={(e) => setName(e.target.value)}
             autoFocus
           />
+        </div>
+        <div>
+          <label className="label">Description</label>
+          <textarea
+            className="input"
+            rows={2}
+            value={description}
+            onChange={(e) => setDescription(e.target.value)}
+            placeholder="Description du module (optionnel)"
+          />
+        </div>
+        {error && <p className="text-sm text-red-600">{error}</p>}
+        <div className="flex gap-2">
           <button onClick={save} className="btn-primary text-sm" disabled={busy}>
             {busy ? "Enregistrement…" : "Enregistrer"}
           </button>
-          <button
-            onClick={() => {
-              setName(module.name);
-              setError("");
-              setEditing(false);
-            }}
-            className="btn-secondary text-sm"
-            disabled={busy}
-          >
+          <button onClick={cancel} className="btn-secondary text-sm" disabled={busy}>
             Annuler
           </button>
         </div>
-        {error && <p className="text-sm text-red-600">{error}</p>}
       </div>
     );
   }
 
   return (
-    <h1 className="flex flex-wrap items-center gap-2 text-2xl font-bold">
-      {module.name}{" "}
-      <span className="text-base font-normal text-gray-400 dark:text-slate-500">
-        ({count} question{count > 1 ? "s" : ""})
-      </span>
-      <button
-        onClick={() => setEditing(true)}
-        className="text-sm font-normal text-brand hover:underline"
-      >
-        ✏️ Renommer
-      </button>
-    </h1>
+    <>
+      <h1 className="flex flex-wrap items-center gap-2 text-2xl font-bold">
+        {module.name}{" "}
+        <span className="text-base font-normal text-gray-400 dark:text-slate-500">
+          ({count} question{count > 1 ? "s" : ""})
+        </span>
+        <button
+          onClick={() => setEditing(true)}
+          className="text-sm font-normal text-brand hover:underline"
+        >
+          ✏️ Modifier
+        </button>
+      </h1>
+      {module.description && (
+        <p className="text-sm text-gray-500 dark:text-slate-400">
+          {module.description}
+        </p>
+      )}
+    </>
   );
 }
 

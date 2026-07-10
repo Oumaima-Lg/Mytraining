@@ -1,0 +1,42 @@
+{
+  "module": "Typescript",
+  "description": "Bases de TypeScript : types primitifs, tableaux/objets, inférence, unions, alias, fonctions, génériques, classes et interfaces.",
+  "questions": [
+    {
+      "prompt": "What are the base types & primitives in TypeScript?",
+      "answer_text": "TypeScript adds types to JavaScript to avoid errors. Common primitive types: string, number, boolean, null, undefined, any.\n- undefined: no value assigned.\n- null: empty on purpose.\n- any: no type safety.\n\nExemple :\nlet username: string = \"Oumaima\";\nlet age: number = 21;\nlet isStudent: boolean = true;"
+    },
+    {
+      "prompt": "How do you type Arrays and Objects in TypeScript?",
+      "answer_text": "Arrays :\nlet numbers: number[] = [1, 2, 3];\nlet names: Array<string> = [\"Ali\", \"Sara\"];\n\nObjects :\nlet user: {\n  name: string;\n  age: number;\n} = {\n  name: \"Oumaima\",\n  age: 21\n};"
+    },
+    {
+      "prompt": "What is Type Inference in TypeScript?",
+      "answer_text": "TypeScript automatically detects the type based on the assigned value, so you don't always need to write types explicitly.\n\nExemple :\nlet city = \"Rabat\"; // inferred as string\n// city = 10  ❌ error"
+    },
+    {
+      "prompt": "What are Union Types in TypeScript?",
+      "answer_text": "Union types allow a value to have multiple possible types. Useful when a value can change type.\n\nExemple :\nlet id: string | number;\nid = 10;\nid = \"A123\";"
+    },
+    {
+      "prompt": "What are Type Aliases in TypeScript?",
+      "answer_text": "Type aliases let you name and reuse a type — cleaner and more maintainable code.\n\nExemple :\ntype User = {\n  name: string;\n  age: number;\n};\nlet admin: User = {\n  name: \"Admin\",\n  age: 30\n};"
+    },
+    {
+      "prompt": "How do you type Functions and Function Types in TypeScript?",
+      "answer_text": "Function with parameter and return types :\nfunction add(a: number, b: number): number {\n  return a + b;\n}\n\nFunction type (variable that holds a function) :\nlet calculate: (x: number, y: number) => number;\ncalculate = add;"
+    },
+    {
+      "prompt": "What are Generics in TypeScript?",
+      "answer_text": "Generics make code flexible and reusable; the type is decided when the function is called.\n\nExemple :\nfunction identity<T>(value: T): T {\n  return value;\n}\nidentity<string>(\"Hello\");\nidentity<number>(10);"
+    },
+    {
+      "prompt": "How do Classes work in TypeScript?",
+      "answer_text": "TypeScript adds access modifiers (public, private, protected) and typing to classes.\n\nExemple :\nclass Person {\n  name: string;\n  private age: number;\n  constructor(name: string, age: number) {\n    this.name = name;\n    this.age = age;\n  }\n  greet() {\n    console.log(\"Hello, \" + this.name);\n  }\n}"
+    },
+    {
+      "prompt": "What are Interfaces in TypeScript?",
+      "answer_text": "Interfaces define the structure of an object. They are mainly used for objects and classes.\n\nExemple :\ninterface User {\n  name: string;\n  age: number;\n  greet(): void;\n}\nlet user1: User = {\n  name: \"Oumaima\",\n  age: 21,\n  greet() {\n    console.log(\"Hi\");\n  }\n};"
+    }
+  ]
+}

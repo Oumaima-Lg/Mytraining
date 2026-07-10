@@ -22,6 +22,7 @@ from datetime import datetime
 from app import create_app
 from app.extensions import db
 from app.models import User, Module, Question, Attachment
+from app.modules.routes import _slugify
 from app.storage import _client, ensure_bucket
 
 
@@ -62,8 +63,17 @@ def main() -> None:
 
         module = Module.query.filter_by(user_id=user.id, name=data["module"]).first()
         if module is None:
-            print(f"✗ Module '{data['module']}' not found for '{email}'.")
-            sys.exit(1)
+            module = Module(
+                user_id=user.id,
+                name=data["module"],
+                slug=_slugify(data["module"]),
+                description=data.get("description", ""),
+            )
+            db.session.add(module)
+            db.session.flush()
+            print(f"→ Created module '{module.name}'")
+        else:
+            print(f"→ Using existing module '{module.name}'")
 
         with app.test_request_context():
             ensure_bucket()

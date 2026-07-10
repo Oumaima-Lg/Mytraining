@@ -1,0 +1,54 @@
+{
+  "module": "Maven",
+  "description": "Maven : outil de gestion de projet Java — pom.xml, dépendances, repositories, scopes, plugins, commandes de build et différence avec Gradle.",
+  "questions": [
+    {
+      "prompt": "What is Maven and what is it used for?",
+      "answer_text": "Maven is a Java project management tool. Using the pom.xml, it manages dependencies, compilation, testing, and packaging. It is used to:\n- Manage dependencies (external libraries).\n- Automate compilation, testing, and packaging.\n- Standardize project structure with the pom.xml.\n\nExample: with `mvn clean install`, you clean, compile, test, and install the project into the local repository in a single command."
+    },
+    {
+      "prompt": "What are the important Maven commands?",
+      "answer_text": "- mvn clean : deletes the target folder (old compiled files: .class, .jar). Use before recompiling for a clean project.\n- mvn compile : compiles Java source (src/main/java). To check the code compiles.\n- mvn test : runs unit tests (src/test/java).\n- mvn package : compile + test + create a .jar/.war in target/.\n- mvn install : installs the .jar/.war into the local repository (.m2) to reuse it as a dependency.\n- mvn clean install : clean + compile + test + package + install into .m2 (the most commonly used, complete pipeline).\n- mvn spring-boot:run : runs a Spring Boot application directly."
+    },
+    {
+      "prompt": "What are the core Maven concepts (pom.xml, dependency, repository, plugin, scope)?",
+      "answer_text": "- pom.xml : the main configuration file of a Maven project (contains dependencies, plugins, project info).\n- Dependency : an external library automatically downloaded by Maven (e.g. Spring Boot, Hibernate, MySQL driver).\n- Repository : where Maven looks for/downloads dependencies — Local (.m2), Central (Internet), Remote (private repo).\n- Plugin : tools that extend Maven to perform tasks (maven-compiler-plugin to compile, spring-boot-maven-plugin to run Spring Boot).\n- Scope : defines when a dependency is used (compile, provided, runtime, test)."
+    },
+    {
+      "prompt": "What is the difference between Maven and Gradle?",
+      "answer_text": "Both are build tools.\n- Maven uses an XML file (pom.xml) and is simpler to use — simplicity & convention.\n- Gradle uses a DSL (Groovy/Kotlin), is more flexible, and faster thanks to incremental builds — flexibility & performance."
+    },
+    {
+      "prompt": "What is the pom.xml file?",
+      "answer_text": "pom.xml stands for Project Object Model. It is the main configuration file of a Maven project. It contains:\n- Dependencies\n- Plugins\n- Project information (name, version, packaging)."
+    },
+    {
+      "prompt": "What is a 'dependency' in Maven?",
+      "answer_text": "A dependency is an external library your project needs. Maven automatically downloads it from a repository and adds it to your project.\n\nExample :\n<dependency>\n  <groupId>org.springframework.boot</groupId>\n  <artifactId>spring-boot-starter-web</artifactId>\n  <version>3.2.0</version>\n</dependency>"
+    },
+    {
+      "prompt": "What are 'repositories' in Maven (local, central, remote)?",
+      "answer_text": "A repository is where Maven stores or retrieves dependencies:\n- Local repository → on your PC, in the .m2 folder.\n- Central repository → the official online repository (default).\n- Remote repository → a private company repository (e.g. Nexus, Artifactory)."
+    },
+    {
+      "prompt": "What is the difference between compile, provided, runtime, and test scopes in Maven?",
+      "answer_text": "Scopes define when a dependency is used:\n- compile (default) → used at compile time and runtime.\n- provided → used at compile time but not packaged (e.g. servlet-api, provided by Tomcat).\n- runtime → not needed at compile time, only at runtime (e.g. JDBC driver).\n- test → used only for testing (e.g. JUnit)."
+    },
+    {
+      "prompt": "How does Maven handle transitive dependencies?",
+      "answer_text": "When you add one dependency (e.g. Spring Boot Starter Web), Maven also downloads all the libraries it depends on (e.g. Tomcat, Jackson). This is called transitive dependencies — you don't need to declare everything manually."
+    },
+    {
+      "prompt": "What is a Maven 'plugin'?",
+      "answer_text": "A Maven plugin is a tool that adds a specific task to the build. Examples:\n- maven-compiler-plugin → compiles Java code.\n- maven-surefire-plugin → runs tests.\n- spring-boot-maven-plugin → runs a Spring Boot app.\nPlugins are defined inside the pom.xml."
+    },
+    {
+      "prompt": "How do you run a Maven build?",
+      "answer_text": "You use Maven commands in the terminal:\n- mvn clean → deletes old compiled files (target/).\n- mvn compile → compiles the project.\n- mvn package → creates a .jar or .war.\n- mvn install → installs the package into the local repository (.m2).\n- mvn test → runs the tests."
+    },
+    {
+      "prompt": "What does the command 'mvn clean install' do?",
+      "answer_text": "It runs two chained steps:\n- clean → removes old compiled files in the target/ folder.\n- install → compiles, tests, packages the project, then installs the artifact into the local repository (.m2).\nResult: you get a .jar (or .war) ready to be reused as a dependency in another project."
+    }
+  ]
+}

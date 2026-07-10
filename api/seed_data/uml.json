@@ -1,0 +1,37 @@
+{
+  "module": "UML",
+  "media_dir": "seed_data/uml_media",
+  "description": "UML (Unified Modeling Language) : à quoi il sert et les diagrammes les plus importants (classes, séquence, cas d'utilisation, activité).",
+  "questions": [
+    {
+      "prompt": "What is UML? / Qu'est-ce qu'UML ?",
+      "answer_text": "UML (Unified Modeling Language) est un langage visuel utilisé pour dessiner des diagrammes représentant la structure et le fonctionnement d'un système logiciel. Il aide à mieux comprendre, concevoir et communiquer les idées d'un projet (classes, relations entre objets, déroulement d'un scénario…).\n\nEn entretien : « UML est un langage graphique utilisé pour modéliser un logiciel à travers des diagrammes, afin de mieux le concevoir et le communiquer. »",
+      "images": []
+    },
+    {
+      "prompt": "Quels sont les diagrammes UML les plus importants à connaître ?",
+      "answer_text": "Les 4 diagrammes les plus demandés :\n- Diagramme de classes : entités (classes), attributs, méthodes et relations.\n- Diagramme de séquence : interactions entre objets au cours du temps.\n- Diagramme de cas d'utilisation (Use Case) : acteurs et leurs interactions avec le système.\n- Diagramme d'activité : flux de travail / processus.",
+      "images": ["uml_image1.png", "uml_image2.png", "uml_image3.png"]
+    },
+    {
+      "prompt": "Qu'est-ce qu'un Diagramme de classes ?",
+      "answer_text": "Il montre les entités (classes), leurs attributs, méthodes et les relations (association, héritage, composition).\nExemple : une classe User reliée à plusieurs Article.\n👉 C'est le plus demandé en entretien car il reflète la conception orientée objet.",
+      "images": []
+    },
+    {
+      "prompt": "Qu'est-ce qu'un Diagramme de séquence ?",
+      "answer_text": "Il illustre les interactions entre les objets au cours du temps (messages échangés).\nExemple : un utilisateur envoie une requête → le contrôleur appelle le service → qui appelle le repository → qui retourne les données.\n👉 Très utile pour montrer un scénario précis (ex : un like sur un article).",
+      "images": []
+    },
+    {
+      "prompt": "Qu'est-ce qu'un Diagramme de cas d'utilisation (Use Case) ?",
+      "answer_text": "Il montre les acteurs (utilisateur, admin, système externe) et leurs interactions avec le système.\nExemple : un utilisateur peut se connecter, aimer un article, poster un commentaire.\n👉 Bon pour discuter avec le métier ou le product owner.",
+      "images": []
+    },
+    {
+      "prompt": "Qu'est-ce qu'un Diagramme d'activité ?",
+      "answer_text": "Il représente le flux de travail ou le processus (workflow).\nExemple : soumission d'un article → validation admin → publication.\n👉 Utile pour décrire la logique métier ou un processus complexe.",
+      "images": []
+    }
+  ]
+}

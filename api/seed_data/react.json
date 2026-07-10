@@ -1,0 +1,519 @@
+{
+  "module": "React",
+  "media_dir": "seed_data/react_media",
+  "description": "Questions d'entretien React : JSX, virtual DOM, state/props, hooks, Redux, routing, cycle de vie, performance… + notes pratiques (hooks, Redux, localStorage, méthodes de tableau, fetch/axios).",
+  "questions": [
+    {
+      "prompt": "What is React?",
+      "answer_text": "React is an open-source JavaScript library for\nbuilding user interfaces or UI components,\ndeveloped by Facebook."
+    },
+    {
+      "prompt": "Explain JSX",
+      "answer_text": "JSX (JavaScript XML) is a syntax extension for\nJavaScript recommended by React for describing\nwhat the UI should look like."
+    },
+    {
+      "prompt": "What is the virtual DOM?",
+      "answer_text": "The virtual DOM is a lightweight copy of the actual\nDOM in memory. React uses it to improve\nperformance by updating only the changed parts of\nthe actual DOM."
+    },
+    {
+      "prompt": "What is the significance of keys in React?",
+      "answer_text": "Keys are used to uniquely identify and differentiate\nbetween components in React. They help React\nidentify which items have changed, added, or\nremoved."
+    },
+    {
+      "prompt": "What are state and props in React?",
+      "answer_text": "State is an internal data store that belongs to a\nspecific component, and it can be changed over\ntime. Props are properties passed to a component\nfrom its parent, and they are immutable."
+    },
+    {
+      "prompt": "What is the difference between state and props?",
+      "answer_text": "State is internal to a component and can be changed\nover time, while props are external and passed to a\ncomponent."
+    },
+    {
+      "prompt": "Explain the concept of lifting state up.",
+      "answer_text": "Lifting state up is a pattern where the state of a child\ncomponent is moved to its parent component,\nallowing multiple child components to share the\nsame state."
+    },
+    {
+      "prompt": "What is the purpose of setState in React?",
+      "answer_text": "setState is used to update the state of a component\nand trigger a re-render."
+    },
+    {
+      "prompt": "What is React Router?",
+      "answer_text": "React Router is a library that enables navigation\namong views in a React application, allowing for the\ndevelopment of single-page applications."
+    },
+    {
+      "prompt": "Explain the useEffect hook.",
+      "answer_text": "The useEffect hook in React is used for side effects in\nfunctional components, such as data fetching,\nsubscriptions, or manually changing the DOM."
+    },
+    {
+      "prompt": "What are controlled components in React?",
+      "answer_text": "Controlled components are components where the\nform data is controlled by React state. The input\nelements receive their current value from the state\nand have their value updated through a callback\nfunction."
+    },
+    {
+      "prompt": "What is Redux, and why is it used?",
+      "answer_text": "Redux is a state management library for JavaScript\napplications, commonly used with React. It helps\nmanage the state of an application in a predictable\nway."
+    },
+    {
+      "prompt": "Explain the concept of higher-order components (HOC).",
+      "answer_text": "Higher-order components are functions that take a\ncomponent and return a new component with\nadditional features or props."
+    },
+    {
+      "prompt": "What is the purpose of the useReducer hook?",
+      "answer_text": "The useReducer hook is used for managing complex\nstate logic in React applications. It is an alternative\nto useState when state transitions are more\ncomplex."
+    },
+    {
+      "prompt": "What is the significance of the key attribute in React lists?",
+      "answer_text": "The key attribute is used to uniquely identify\nelements in a list. It helps React efficiently update\nthe DOM when the list changes."
+    },
+    {
+      "prompt": "What is the difference between class components and functional components?",
+      "answer_text": "class components use ES6 classes and have\nadditional features like state and lifecycle methods,\nwhile functional components are simpler and are\noften used with hooks."
+    },
+    {
+      "prompt": "Explain the concept of refs in React.",
+      "answer_text": "Refs are used to access the DOM directly or to\nreference a React element. They provide a way to\ninteract with the underlying DOM nodes in React."
+    },
+    {
+      "prompt": "What are React hooks?",
+      "answer_text": "React hooks are functions that allow functional\ncomponents to use state, lifecycle methods, and\nother React features."
+    },
+    {
+      "prompt": "Explain the purpose of the useContext hook.",
+      "answer_text": "The useContext hook is used to access the value of a\nReact context within a functional component."
+    },
+    {
+      "prompt": "What is the significance of the dangerouslySetInnerHTML property in React?",
+      "answer_text": "dangerouslySetInnerHTML is used to inject HTML\ndirectly into a component, but it should be used with\ncaution to avoid cross-site scripting (XSS)\nvulnerabilities."
+    },
+    {
+      "prompt": "What is the purpose of the componentDidMount lifecycle method?",
+      "answer_text": "componentDidMount is invoked immediately after a\ncomponent is mounted, making it suitable for initial\nAJAX requests or setting up subscriptions."
+    },
+    {
+      "prompt": "What is the React developer tool?",
+      "answer_text": "The React Developer Tools is a browser extension\nthat allows developers to inspect and debug React\ncomponent hierarchies in the Chrome and Firefox\nbrowsers."
+    },
+    {
+      "prompt": "Explain the concept of context in React.",
+      "answer_text": "Context provides a way to pass data through the\ncomponent tree without having to pass props\nmanually at every level. It is often used to share\nvalues like themes or authentication status."
+    },
+    {
+      "prompt": "What are the advantages of using React?",
+      "answer_text": "React offers a virtual DOM for improved\nperformance, a component-based architecture for\nmodular development, and a strong community\nsupport, among other advantages."
+    },
+    {
+      "prompt": "How does React handle prop drilling, and how can it be avoided?",
+      "answer_text": "Prop drilling occurs when props are passed down\nthrough multiple levels of components. It can be\navoided by using context or state management\nlibraries like Redux."
+    },
+    {
+      "prompt": "What is the purpose of the shouldComponentUpdate method?",
+      "answer_text": "shouldComponentUpdate is a lifecycle method that\ndetermines if a component should re-render.\nDevelopers can use it to optimize performance by\npreventing unnecessary renders."
+    },
+    {
+      "prompt": "Explain the significance of React Fragments.",
+      "answer_text": "React Fragments allow developers to group multiple\nelements without adding an extra node to the DOM,\nhelping to keep the structure clean."
+    },
+    {
+      "prompt": "What is the significance of the key prop in React Router?",
+      "answer_text": "The key prop in React Router is used to force the\nremounting of a component when the key changes,\nensuring that the component is fully reinitialized."
+    },
+    {
+      "prompt": "What is the purpose of the forwardRef function in React?",
+      "answer_text": "forwardRef is used to forward refs through\ncomponents, allowing parent components to\ninteract with the child's DOM node."
+    },
+    {
+      "prompt": "Explain the concept of error boundaries in React.",
+      "answer_text": "Error boundaries are components that catch\nJavaScript errors anywhere in their child component\ntree and log those errors, display a fallback UI, or\ntake other actions."
+    },
+    {
+      "prompt": "What is the significance of the memo function in React?",
+      "answer_text": "memo is a higher-order component that memoizes\nthe rendering of a functional component, preventing\nunnecessary re-renders if the props have not\nchanged."
+    },
+    {
+      "prompt": "How does React handle forms?",
+      "answer_text": "React handles forms by using controlled\ncomponents, where form data is controlled by the\nReact state."
+    },
+    {
+      "prompt": "Explain the purpose of the useMemo hook.",
+      "answer_text": "The useMemo hook is used to memoize the result of\na function, preventing unnecessary calculations and\nimproving performance."
+    },
+    {
+      "prompt": "What is the significance of the useCallback hook?",
+      "answer_text": "useCallback is used to memoize callback functions,\npreventing them from being recreated on every\nrender."
+    },
+    {
+      "prompt": "What are React portals?",
+      "answer_text": "React portals provide a way to render children into a\nDOM node that exists outside the parent\ncomponent's hierarchy."
+    },
+    {
+      "prompt": "Explain the concept of suspense in React.",
+      "answer_text": "Suspense is a feature in React that allows\ncomponents to \"wait\" for something before\nrendering, such as data fetching or code splitting."
+    },
+    {
+      "prompt": "What is the purpose of the useEffect cleanup function?",
+      "answer_text": "The cleanup function in useEffect is used to perform\ncleanup tasks, such as unsubscribing from\nsubscriptions or clearing intervals, when a\ncomponent is unmounted."
+    },
+    {
+      "prompt": "How does React handle routing?",
+      "answer_text": "React can handle routing using the React Router\nlibrary, which provides a way to navigate between\ndifferent views or pages in a React application."
+    },
+    {
+      "prompt": "What is the purpose of the useLayoutEffect hook?",
+      "answer_text": "useLayoutEffect is similar to useEffect, but it fires\nsynchronously after all DOM mutations. It is often\nused for measuring and synchronizing layout."
+    },
+    {
+      "prompt": "Explain the concept of lazy loading in React.",
+      "answer_text": "Lazy loading is a technique where components or\nmodules are loaded only when they are actually\nneeded, improving initial load times."
+    },
+    {
+      "prompt": "What is the significance of the React.memo function?",
+      "answer_text": "React.memo is a higher-order component that\nmemoizes the rendering of a functional component,\npreventing unnecessary re-renders if the props have\nnot changed."
+    },
+    {
+      "prompt": "How does React handle code splitting?",
+      "answer_text": "React supports code splitting, allowing developers to\nsplit their code into smaller chunks that are loaded\non demand, improving performance by reducing the\ninitial bundle size."
+    },
+    {
+      "prompt": "What is the purpose of the useImperativeHandle hook?",
+      "answer_text": "useImperativeHandle is used to customize the\ninstance value that is exposed when using\nReact.forwardRef."
+    },
+    {
+      "prompt": "Explain the concept of the useDebugValue hook.",
+      "answer_text": "useDebugValue is used to display a label for custom\nhooks in React DevTools."
+    },
+    {
+      "prompt": "What is the purpose of the useState hook?",
+      "answer_text": "The useState hook is used to add state to functional\ncomponents in React."
+    },
+    {
+      "prompt": "Explain the significance of the SuspenseList component in React.",
+      "answer_text": "SuspenseList is a component that allows developers\nto coordinate the loading of multiple components in\na way that provides a better user experience."
+    },
+    {
+      "prompt": "What is the significance of the react-scripts package in a React application?",
+      "answer_text": "react-scripts is a set of scripts and configurations\nused by Create React App to set up and manage a\nReact project without the need for complex\nconfiguration."
+    },
+    {
+      "prompt": "What is Reactjs?",
+      "answer_text": "React is a JavaScript library that makes building user interfaces easy. It was developed\nby Facebook."
+    },
+    {
+      "prompt": "Does React use HTML?",
+      "answer_text": "No, It uses JSX, which is similar to HTML."
+    },
+    {
+      "prompt": "When was React first released?",
+      "answer_text": "React was first released on March 2013."
+    },
+    {
+      "prompt": "Give me two most significant drawbacks of React",
+      "answer_text": " Integrating React with the MVC framework like Rails requires complex\nconfiguration.\n React require the users to have knowledge about the integration of user interface\ninto MVC framework."
+    },
+    {
+      "prompt": "State the difference between Real DOM and Virtual DOM",
+      "answer_text": "Real DOM\nVirtual DOM\nIt is updated slowly.\nIt updates faster.\nIt allows a direct update from HTML.\nIt cannot be used to update HTML\ndirectly.\nIt wastes too much memory.\nMemory consumption is less"
+    },
+    {
+      "prompt": "What is Flux Concept In React?",
+      "answer_text": "Facebook widely uses flux architecture concept for developing client-side web\napplications. It is not a framework or a library. It is simply a new kind of architecture\nthat complements React and the concept of Unidirectional Data Flow."
+    },
+    {
+      "prompt": "Define the term Redux in React",
+      "answer_text": "Redux is a library used for front end development. It is a state container for JavaScript\napplications which should be used for the applications state management. You can test\nand run an application developed with Redux in different environments."
+    },
+    {
+      "prompt": "What is the 'Store' feature in Redux?",
+      "answer_text": "Redux has a feature called 'Store' which allows you to save the application's entire State\nat one place. Therefore all it's component's State are stored in the Store so that you will\nget regular updates directly from the Store. The single state tree helps you to keep track\nof changes over time and debug or inspect the application."
+    },
+    {
+      "prompt": "What is an action in Redux?",
+      "answer_text": "It is a function which returns an action object. The action-type and the action data are\nalways stored in the action object. Actions can send data between the Store and the\nsoftware application. All information retrieved by the Store is produced by the actions."
+    },
+    {
+      "prompt": "Name the important features of React",
+      "answer_text": "Here, are important features of React.\n\nAllows you to use 3rd party libraries\nTime-Saving\nFaster Development\nSimplicity and Composable\nFully supported by\nFacebook.\nCode Stability with One-directional data binding\nReact Components"
+    },
+    {
+      "prompt": "Explain the term stateless components",
+      "answer_text": "Stateless components are pure functions that render DOM-based solely on the\nproperties provided to them."
+    },
+    {
+      "prompt": "What is dispatcher?",
+      "answer_text": "A dispatcher is a central hub of app where you will receive actions and broadcast\npayload to registered callbacks."
+    },
+    {
+      "prompt": "What is meant by callback function? What is its purpose?",
+      "answer_text": "A callback function should be called when setState has finished, and the component is\nretendered. As the setState is asynchronous, which is why it takes in a second callback\nfunction."
+    },
+    {
+      "prompt": "Explain the term high order component",
+      "answer_text": "A higher-order component also shortly known as HOC is an advanced technique for\nreusing component logic. It is not a part of the React API, but they are a pattern which\nemerges from React’s compositional nature."
+    },
+    {
+      "prompt": "Explain the Presentational segment",
+      "answer_text": "A presentational part is a segment which allows you to renders HTML. The segment’s\ncapacity is presentational in markup."
+    },
+    {
+      "prompt": "What are Props in react js?",
+      "answer_text": "Props mean properties, which is a way of passing data from parent to child. We can say\nthat props are just a communication channel between components. It is always moving\nfrom parent to child component."
+    },
+    {
+      "prompt": "Explain yield catchphrase in JavaScript",
+      "answer_text": "The yield catchphrase is utilized to delay and resume a generator work, which is known\nas yield catchphrase."
+    },
+    {
+      "prompt": "Name two types of React component",
+      "answer_text": "Two types of react Components are:\nFunction component\nClass component"
+    },
+    {
+      "prompt": "Explain synthetic event in React js",
+      "answer_text": "Synthetic event is a kind of object which acts as a cross-browser wrapper around the\nbrowser’s native event. It also helps us to combine the behaviors of various browser into\nsignal API."
+    },
+    {
+      "prompt": "What is React State?",
+      "answer_text": "It is an object which decides how a specific component renders and how it behaves. The\nstate stores the information which can be changed over the lifetime of a React\ncomponent."
+    },
+    {
+      "prompt": "How can you update state in react js?",
+      "answer_text": "A state can be updated on the component directly or indirectly."
+    },
+    {
+      "prompt": "Explain the use of the arrow function in React",
+      "answer_text": "The arrow function helps you to predict the behavior of bugs when passed as a callback.\nTherefore, it prevents bug caused by this all together."
+    },
+    {
+      "prompt": "State the main difference between Pros and State",
+      "answer_text": "The main difference the two is that the State is mutable and Pros are immutable."
+    },
+    {
+      "prompt": "Explain pure components in React js",
+      "answer_text": "Pure components are the fastest components which can replace any component with\nonly a render(). It helps you to enhance the simplicity of the code and performance of the\napplication."
+    },
+    {
+      "prompt": "What kind of information controls a segment in React?",
+      "answer_text": "There are mainly two sorts of information that control a segment: State and Props\nState: State information that will change, we need to utilize State.\nProps: Props are set by the parent and which are settled all through the lifetime\nof a part."
+    },
+    {
+      "prompt": "What is 'create-react-app'?",
+      "answer_text": "'create-react-app' is a command-line tool which allows you to create one basic react\napplication."
+    },
+    {
+      "prompt": "Explain the use of 'key' in react list",
+      "answer_text": "Keys allow you to provide each list element with a stable identity. The keys should be\nunique."
+    },
+    {
+      "prompt": "What are children prop?",
+      "answer_text": "Children props are used to pass component to other components as properties."
+    },
+    {
+      "prompt": "Explain error boundaries?",
+      "answer_text": "Error boundaries help you to catch Javascript error anywhere in the child components.\nThey are most used to log the error and show a fallback UI."
+    },
+    {
+      "prompt": "What is the use of empty tags ?",
+      "answer_text": "Empty tags are used in React for declaring fragments."
+    },
+    {
+      "prompt": "Explain strict mode",
+      "answer_text": "StrictMode allows you to run checks and warnings for react components. It runs only on\ndevelopment build. It helps you to highlight the issues without rendering any visible UI."
+    },
+    {
+      "prompt": "What are reacted portals?",
+      "answer_text": "Portal allows you to render children into a DOM node. CreatePortalmethod is used for\nit."
+    },
+    {
+      "prompt": "What is Context?",
+      "answer_text": "React context helps you to pass data using the tree of react components. It helps you to\nshare data globally between various react components."
+    },
+    {
+      "prompt": "What is the use of Webpack?",
+      "answer_text": "Webpack in basically is a module builder. It is mainly runs during the development\nprocess."
+    },
+    {
+      "prompt": "What is Babel in React js?",
+      "answer_text": "Babel, is a JavaScript compiler that converts latest JavaScript like ES6, ES7 into plain\nold ES5 JavaScript that most browsers understand."
+    },
+    {
+      "prompt": "How can a browser read JSX file?",
+      "answer_text": "If you want the browser to read JSX, then that JSX file should be replaced using a JSX\ntransformer like Babel and then send back to the browser."
+    },
+    {
+      "prompt": "What are the major issues of using MVC architecture in React?",
+      "answer_text": "Here are the major challenges you will face while handling MVC architecture:\n\n DOM handling is quite expensive\n Most of the time applications were slow and inefficient\n Because of circular functions, a complex model has been created around\nmodels and ideas"
+    },
+    {
+      "prompt": "What can be done when there is more than one line of expression?",
+      "answer_text": "At that time a multi-line JSX expression is the only option left for you."
+    },
+    {
+      "prompt": "What is the reduction?",
+      "answer_text": "The reduction is an application method of handling State."
+    },
+    {
+      "prompt": "Explain the term synthetic events",
+      "answer_text": "It is actuallya cross-browser wrapper around the browser’s native event. These events\nhave interface stopPropagation() and preventDefault()."
+    },
+    {
+      "prompt": "When should you use the top-class elements for the function element?",
+      "answer_text": "If your element does a stage or lifetime cycle, we should use top-class elements."
+    },
+    {
+      "prompt": "How can you share an element in the parsing?",
+      "answer_text": "Using the State, we can share the data."
+    },
+    {
+      "prompt": "Explain the term reconciliation",
+      "answer_text": "When a component's state or props change then rest will compare the rendered element\nwith previously rendered DOM and will update the actual DOM if it is needed. This\nprocess is known as reconciliation."
+    },
+    {
+      "prompt": "How can you re-render a component without using setState() function?",
+      "answer_text": "You can use forceUpdate() function for re-rending any component."
+    },
+    {
+      "prompt": "Can you update props in react?",
+      "answer_text": "You can’t update props in react js because props are read-only. Moreover, you can not\nmodify props received from parent to child."
+    },
+    {
+      "prompt": "Explain the term 'Restructuring.'",
+      "answer_text": "Restructuring is extraction process of array objects. Once the process is completed, you\ncan separate each object in a separate variable."
+    },
+    {
+      "prompt": "Can you update the values of props?",
+      "answer_text": "It is not possible to update the value of props as it is immutable."
+    },
+    {
+      "prompt": "Explain the meaning of Mounting and Demounting",
+      "answer_text": " The process of attaching the element to the DCOM is called mounting.\n The process of detaching the element from the DCOM is called the demounting\nprocess."
+    },
+    {
+      "prompt": "What is the use of ‘props-types’ liberary?",
+      "answer_text": "'Prop-types' library allows you to perform runtime type checking for props and similar\nobject in a recent application."
+    },
+    {
+      "prompt": "What is useState() in React ?",
+      "answer_text": "The React useState Hook allows us to track state in a function component.\nState generally refers to data or properties that need to be tracking in an application.\nTo use the useState Hook, we first need to import it into our component.\nuseState accepts an initial state and returns two values:\n•\nThe current state.\n•\nA function that updates the state."
+    },
+    {
+      "prompt": "What are the differences between controlled and uncontrolled components?",
+      "answer_text": "A Controlled Component is one that takes its current value through props and notifies\nchanges through callbacks like onChange.\nA Uncontrolled Component is one that stores its own state internally, and you query the\nDOM using a ref to find its current value when you need it."
+    },
+    {
+      "prompt": "When rendering a list what is a key and what is it's purpose?",
+      "answer_text": "Keys help React identify which items have changed, are added, or are removed. Keys\nshould be given to the elements inside the array to give the elements a stable identity. The\nbest way to pick a key is to use a string that uniquely identifies a list item among its\nsiblings."
+    },
+    {
+      "prompt": "What is an event in React?",
+      "answer_text": "An event is an action which triggers as a result of the user action or system generated\nevent like a mouse click, loading of a web page, pressing a key, window resizes, etc. In\nReact, the event handling system is very similar to handling events in DOM elements. The\nReact event handling system is known as Synthetic Event, which is a cross-browser\nwrapper of the browser's native event."
+    },
+    {
+      "prompt": "What is Virtual DOM?",
+      "answer_text": "Virtual DOM is just a copy of the original DOM kept in the memory and synced with the real\nDOM by libraries such as ReactDOM. Virtual DOM has the same properties that of the\nReal DOM, but it lacks the power to directly change the content of the screen.\nThe Virtual DOM (VDOM) is an in-memory representation of Real DOM. The\nrepresentation of a UI is kept in memory and synced with the \"real\" DOM. It's a step that\nhappens between the render function being called and the displaying of elements on the\nscreen. This entire process is called reconciliation."
+    },
+    {
+      "prompt": "What are Life Cycle Methods in React?",
+      "answer_text": "There are four different phases in the lifecycle of React component. They are: Initialization: During this phase, React component will prepare by setting up the default\nprops and initial state for the upcoming tough journey.\nMounting: Mounting refers to putting the elements into the browser DOM. Since React\nuses VirtualDOM, the entire browser DOM which has been currently rendered would not\nbe refreshed. This phase includes the lifecycle\nmethods componentWillMount and componentDidMount.\nUpdating: In this phase, a component will be updated when there is a change in the\nstate or props of a component. This phase will have lifecycle methods\nlike componentWillUpdate, shouldComponentUpdate, render, and componentDidUpdate.\nUnmounting: In this last phase of the component lifecycle, the component will be\nremoved from the DOM or will be unmounted from the browser DOM. This phase will\nhave the lifecycle method named componentWillUnmount."
+    },
+    {
+      "prompt": "What are the limitations of React?",
+      "answer_text": "The few limitations of React are as given below:\n React is not a full-blown framework as it is only a library.\n The components of React are numerous and will take time to fully grasp the benefits\nof all.\n It might be difficult for beginner programmers to understand React.\n Coding might become complex as it will make use of inline templating and JSX."
+    },
+    {
+      "prompt": "What is the difference between Shadow DOM and Virtual DOM?",
+      "answer_text": "The Shadow DOM is a browser technology designed primarily for scoping variables and\nCSS in web components. The Virtual DOM is a concept implemented by libraries in\nJavaScript on top of browser APIs."
+    },
+    {
+      "prompt": "What is the difference between React and ReactDOM?",
+      "answer_text": "The react package contains React.createElement(), React.Component, React.Children,\nand other helpers related to elements and component classes. You can think of these as\nthe isomorphic or universal helpers that you need to build components. The react-dom\npackage contains ReactDOM.render(), and in react-dom/server we have server-side\nrendering support with ReactDOMServer.renderToString() and\nReactDOMServer.renderToStaticMarkup()."
+    },
+    {
+      "prompt": "What is the purpose of ReactTestUtils package?",
+      "answer_text": "ReactTestUtils are provided in the with-addons package and allow you to perform actions\nagainst a simulated DOM for the purpose of unit testing."
+    },
+    {
+      "prompt": "What are the core principles of Redux?",
+      "answer_text": "Redux follows three fundamental principles:\ni.\nSingle source of truth: The state of your whole application is stored in an object\ntree within a single store. The single state tree makes it easier to keep track of\nchanges over time and debug or inspect the application.\nii.\nState is read-only: The only way to change the state is to emit an action, an\nobject describing what happened. This ensures that neither the views nor the\nnetwork callbacks will ever write directly to the state.\niii.\nChanges are made with pure functions: To specify how the state tree is\ntransformed by actions, you write reducers. Reducers are just pure functions that\ntake the previous state and an action as parameters, and return the next state."
+    },
+    {
+      "prompt": "How to access Redux store outside a component?",
+      "answer_text": "You just need to export the store from the module where it created with createStore().\nAlso, it shouldn't pollute the global window object."
+    },
+    {
+      "prompt": "What is the difference between React context and React Redux?",
+      "answer_text": "You can use Context in your application directly and is going to be great for passing down\ndata to deeply nested components which what it was designed for. Whereas Redux is\nmuch more powerful and provides a large number of features that the Context API doesn't\nprovide. Also, React Redux uses context internally but it doesn't expose this fact in the\npublic API."
+    },
+    {
+      "prompt": "What is the difference between component and container in React Redux?",
+      "answer_text": "Component is a class or function component that describes the presentational part of your\napplication. Container is an informal term for a component that is connected to a Redux\nstore. Containers subscribe to Redux state updates and dispatch actions, and they usually\ndon't render DOM elements; they delegate rendering to presentational child components."
+    },
+    {
+      "prompt": "What is Lifting State Up in React?",
+      "answer_text": "When several components need to share the same changing data then it is recommended\nto lift the shared state up to their closest common ancestor. That means if two child\ncomponents share the same data from its parent, then move the state to parent instead of\nmaintaining local state in both of the child components."
+    },
+    {
+      "prompt": "Why are fragments better than container divs?",
+      "answer_text": "i.\nFragments are a bit faster and use less memory by not creating an extra DOM node.\nThis only has a real benefit on very large and deep trees.\nii.\nSome CSS mechanisms like Flexbox and CSS Grid have a special parent-child\nrelationships, and adding divs in the middle makes it hard to keep the desired layout.\niii.\nThe DOM Inspector is less cluttered."
+    },
+    {
+      "prompt": "Differentiate React Hooks vs Classes.",
+      "answer_text": "React Hooks\nClasses\nIt is used in functional components of React.\nIt is used in class-based components of React.\nIt will not require a declaration of any kind of\nconstructor.\nIt is necessary to declare the constructor inside\nthe class component.\nIt does not require the use of this keyword in\nstate declaration or modification.\nKeyword this will be used in state declaration\n(this.state) and in modification\n(this.setState()).\nIt is easier to use because of\nthe useState functionality.\nNo specific function is available for helping us to\naccess the state and its corresponding setState\nvariable.\nReact Hooks can be helpful in implementing\nRedux and context API.\nBecause of the long setup of state declarations,\nclass states are generally not preferred."
+    },
+    {
+      "prompt": "En React, useState est-il synchrone ou asynchrone ?",
+      "answer_text": "Les mises à jour d'état via useState() (ex : setFormError()) sont asynchrones : la variable d'état n'est pas mise à jour immédiatement après l'appel. useState est asynchrone par nature, mais ce n'est pas une Promise — tu ne peux donc pas faire await dessus. Pour réagir à la nouvelle valeur, utilise plutôt un useEffect qui dépend de cette variable.",
+      "images": [
+        "react_image1.png",
+        "react_image2.png",
+        "react_image3.png"
+      ]
+    },
+    {
+      "prompt": "À quoi sert l'opérateur && dans le JSX React ?",
+      "answer_text": "L'opérateur && permet le rendu conditionnel dans le JSX : `{condition && <Composant />}` affiche l'élément de droite uniquement si la condition est vraie (sinon rien n'est rendu).",
+      "images": [
+        "react_image4.png"
+      ]
+    },
+    {
+      "prompt": "Qu'est-ce que Redux et la structure d'une action (type / payload) ?",
+      "answer_text": "Redux est une bibliothèque de gestion d'état centralisée (un store global). Une action est un objet qui décrit ce qui doit changer :\n- type (obligatoire) : le nom de l'action, dit à Redux quoi faire.\n- payload (optionnel) : les données à utiliser pour mettre à jour l'état.",
+      "images": [
+        "react_image5.png"
+      ]
+    },
+    {
+      "prompt": "Qu'est-ce que localStorage ?",
+      "answer_text": "localStorage est une fonctionnalité des navigateurs qui stocke des données localement dans le navigateur de l'utilisateur.\n- Emplacement : dans le navigateur (pas sur le serveur).\n- Durée de vie : jamais supprimé automatiquement (sauf vidage du cache).\n- Taille : ~5 à 10 Mo.\n- Type : texte uniquement → on utilise JSON.stringify() pour stocker des objets.\n- Isolé par site : chaque site a son propre localStorage.\nUsages typiques : garder un utilisateur connecté (token), sauvegarder un thème, mémoriser des préférences, un panier temporaire.",
+      "images": []
+    },
+    {
+      "prompt": "Qu'est-ce qu'un reducer, pourquoi doit-il être pur, et qu'est-ce que dispatch ?",
+      "answer_text": "Un reducer est une fonction (state, action) => newState : `state` contient l'état actuel, `action.payload` les données passées. Un reducer doit être pur : pas d'effets de bord (pas de localStorage, pas d'appel réseau/API, pas de console.log/alert, pas de lecture externe). Redux Toolkit repose sur ce principe pour garantir la prévisibilité de l'état.\ndispatch est une fonction fournie par Redux pour envoyer une action au store.",
+      "images": []
+    },
+    {
+      "prompt": "À quoi sert useEffect et quels sont ses cas d'usage ?",
+      "answer_text": "useEffect sert à exécuter des effets de bord après le rendu. Cas d'usage :\n- Appel API (fetch, axios)\n- Modifier document.title (changement visuel navigateur)\n- Timer ou intervalle (setInterval, setTimeout)\n- Écoute d'événement (addEventListener, souris/clavier)\n- Sauvegarde dans localStorage\n- Connexion WebSocket / base externe (temps réel)",
+      "images": [
+        "react_image6.png",
+        "react_image7.png"
+      ]
+    },
+    {
+      "prompt": "Quels sont les principaux Hooks React et leurs rôles ?",
+      "answer_text": "- useState : gérer l'état local\n- useEffect : effets de bord (API, timers...)\n- useContext : utiliser un contexte global\n- useRef : référence DOM / valeur persistante\n- useMemo : mémoriser des calculs\n- useCallback : mémoriser des fonctions\n- useReducer : gérer un état complexe\n- useLayoutEffect : effets après mise à jour du DOM (synchrone)\n- useImperativeHandle : exposer une API personnalisée à un ref",
+      "images": [
+        "react_image8.png"
+      ]
+    },
+    {
+      "prompt": "Quelles sont les méthodes de tableau (Array) fréquemment utilisées en JS/React ?",
+      "answer_text": "- map() : transforme chaque élément → nouveau tableau. [1,2,3].map(x=>x*2) → [2,4,6]\n- filter() : garde les éléments qui respectent une condition. [1,2,3,4].filter(x=>x%2===0) → [2,4]\n- find() : premier élément satisfaisant une condition. [1,2,3].find(x=>x>1) → 2\n- findIndex() : index du premier élément trouvé.\n- forEach() : exécute une fonction pour chaque élément (ne retourne rien).\n- some() : true si au moins un élément respecte la condition.\n- every() : true si tous les éléments respectent la condition.\n- reduce() : réduit le tableau à une seule valeur. [1,2,3].reduce((a,b)=>a+b,0) → 6\n- includes() : vérifie si une valeur est présente.\n- indexOf() : index d'un élément (ou -1).\n- sort() : trie le tableau.\n- slice() : coupe une portion (sans modifier l'original).\n- splice() : ajoute/supprime/modifie des éléments (⚠️ modifie l'original).",
+      "images": []
+    },
+    {
+      "prompt": "Fetch / Axios : comment gérer les requêtes HTTP (then/catch vs async/await) ?",
+      "answer_text": "Deux styles pour gérer une requête asynchrone :\n- .then / .catch / .finally → Promise chaining (ancienne façon).\n- async / await avec try / catch / finally → version moderne, plus lisible.\nAxios et fetch retournent tous deux des Promises.",
+      "images": [
+        "react_image9.png"
+      ]
+    }
+  ]
+}

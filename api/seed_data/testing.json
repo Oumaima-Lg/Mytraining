@@ -1,0 +1,57 @@
+{
+  "module": "Test",
+  "media_dir": "seed_data/testing_media",
+  "description": "Tests unitaires en Java : principes, bonnes pratiques (AAA), JUnit 5 (annotations, assertions), Mockito (@Mock, @InjectMocks, @Spy, @Captor) et tests Spring Boot (avec schémas).",
+  "questions": [
+    {
+      "prompt": "Qu'est-ce qu'un test unitaire et pourquoi l'utiliser ?",
+      "answer_text": "Un test unitaire teste une petite unité de code (méthode/classe) en isolation, vérifie le comportement attendu, s'exécute vite et automatiquement, et détecte les bugs tôt.\n\nPourquoi :\n- Détection précoce des bugs (avant la production).\n- Documentation du code (un nouveau développeur comprend le comportement attendu en lisant les tests).\n- Facilite le refactoring (si tu casses quelque chose, les tests échouent immédiatement).\n- Améliore la qualité : « code testable = code de qualité ».",
+      "images": []
+    },
+    {
+      "prompt": "Quelles sont les bonnes pratiques des tests unitaires (pattern AAA) ?",
+      "answer_text": "1. Pattern AAA : Arrange, Act, Assert.\n2. One Test = One Scenario : chaque test vérifie une seule chose.\n3. Tests indépendants : les tests ne doivent pas dépendre les uns des autres.\n4. Noms descriptifs : ex testShouldReturnErrorWhenDivideByZero().\n5. Tests rapides : les tests unitaires doivent s'exécuter vite.\n\nStructure Spring Boot : src/test/java/ → unit/ (tests unitaires purs), integration/, web/ (contrôleurs), repository/.",
+      "images": ["test_image1.png", "test_image2.png"]
+    },
+    {
+      "prompt": "Qu'est-ce que JUnit et quelles sont ses annotations principales (JUnit 5) ?",
+      "answer_text": "JUnit est le framework standard de tests unitaires pour Java ; il fournit les annotations et assertions pour écrire et exécuter des tests automatisés.\n\nAnnotations JUnit 5 :\n- @Test : marque une méthode de test.\n- @BeforeEach / @AfterEach : exécuté avant / après chaque test.\n- @BeforeAll / @AfterAll : exécuté une fois avant / après tous les tests.\n- @DisplayName : nom personnalisé du test.\n- @Disabled : désactive un test.\n- @RepeatedTest : répète un test plusieurs fois.\n- @ParameterizedTest : test avec paramètres.",
+      "images": []
+    },
+    {
+      "prompt": "Quelles sont les assertions JUnit les plus utilisées ?",
+      "answer_text": "- assertEquals(expected, actual) : égalité.\n- assertTrue(condition) / assertFalse(condition).\n- assertNull(object) / assertNotNull(object).\n- assertThrows(Exception.class, executable) : exception attendue.\n- assertAll(() -> {...}, () -> {...}) : assertions groupées.",
+      "images": []
+    },
+    {
+      "prompt": "Qu'est-ce que Mockito et @Mock ?",
+      "answer_text": "Mockito est un framework de mocking qui crée des objets simulés (mocks) pour isoler la classe testée de ses dépendances.\n\n@Mock crée un faux objet qui imite le comportement d'une vraie classe sans exécuter son code réel.\n\nPourquoi utiliser des mocks : 1) Isolation (tester uniquement la logique de ma classe), 2) Rapidité (éviter les accès lents : BD, réseau), 3) Contrôle (simuler différents scénarios : erreurs, cas limites).",
+      "images": ["test_image3.png", "test_image4.png"]
+    },
+    {
+      "prompt": "Que sont @InjectMocks, @Spy et @Captor ?",
+      "answer_text": "- @InjectMocks : crée une vraie instance de la classe ET y injecte automatiquement tous les mocks dont elle a besoin.\n- @Spy : crée un vrai objet mais permet de mocker seulement certaines méthodes quand nécessaire.\n- @Captor : crée un « piège » qui capture les arguments passés à une méthode, pour les analyser en détail après l'appel.",
+      "images": ["test_image5.png"]
+    },
+    {
+      "prompt": "Résumé : comment utiliser Mockito avec JUnit 5 ?",
+      "answer_text": "@ExtendWith(MockitoExtension.class) est l'activateur de Mockito pour JUnit 5 dans les tests unitaires purs. Combiné avec @Mock (dépendances simulées) et @InjectMocks (classe testée avec les mocks injectés), il permet d'écrire des tests unitaires isolés.",
+      "images": ["test_image6.png"]
+    },
+    {
+      "prompt": "Quelle est la différence entre un test unitaire et un test Spring Boot ?",
+      "answer_text": "Test unitaire pur : utilise @ExtendWith(MockitoExtension.class), teste une classe en isolation avec des mocks, très rapide, ne charge pas le contexte Spring.\nTest Spring Boot : charge (tout ou partie) du contexte Spring et inclut automatiquement Mockito dans son contexte de test ; utile pour tester l'intégration des composants.",
+      "images": ["test_image7.png", "test_image8.png", "test_image9.png"]
+    },
+    {
+      "prompt": "Quelle est la distribution optimale des tests (pyramide des tests) ?",
+      "answer_text": "- 60 % Tests unitaires : logique, calculs, validations.\n- 30 % Tests Spring Boot : services, intégration.\n- 10 % Tests E2E : parcours complets.",
+      "images": ["test_image10.png", "test_image11.png"]
+    },
+    {
+      "prompt": "Quelles sont les annotations de test Spring Boot ?",
+      "answer_text": "- @SpringBootTest : charge le contexte Spring complet.\n- @WebMvcTest : charge uniquement la couche web (contrôleurs).\n- @DataJpaTest : charge uniquement la configuration JPA (repositories).\n- @JsonTest : teste la sérialisation/désérialisation JSON.\n- @TestConfiguration : configuration spécifique aux tests.",
+      "images": []
+    }
+  ]
+}

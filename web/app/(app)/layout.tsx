@@ -1,6 +1,7 @@
 import Link from "next/link";
 import LogoutButton from "./LogoutButton";
 import ThemeToggle from "../ThemeToggle";
+import ScrollToTop from "./ScrollToTop";
 
 export default function AppLayout({
   children,
@@ -33,6 +34,7 @@ export default function AppLayout({
         </div>
       </header>
       <main className="mx-auto max-w-5xl px-4 py-8">{children}</main>
+      <ScrollToTop />
     </div>
   );
 }

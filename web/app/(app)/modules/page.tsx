@@ -7,6 +7,7 @@ import { api, Module } from "@/lib/api";
 export default function ModulesPage() {
   const [modules, setModules] = useState<Module[]>([]);
   const [loading, setLoading] = useState(true);
+  const [search, setSearch] = useState("");
 
   async function load() {
     const { modules } = await api.get<{ modules: Module[] }>("modules");
@@ -23,6 +24,11 @@ export default function ModulesPage() {
     load();
   }
 
+  const query = search.trim().toLowerCase();
+  const filtered = query
+    ? modules.filter((m) => m.name.toLowerCase().includes(query))
+    : modules;
+
   return (
     <div className="space-y-6">
       <div className="flex items-center justify-between">
@@ -32,15 +38,35 @@ export default function ModulesPage() {
         </Link>
       </div>
 
+      {!loading && modules.length > 0 && (
+        <div className="relative">
+          <span className="pointer-events-none absolute left-3 top-1/2 -translate-y-1/2 text-gray-400 dark:text-slate-500">
+            🔍
+          </span>
+          <input
+            type="search"
+            className="input pl-9"
+            placeholder="Rechercher un module par nom…"
+            value={search}
+            onChange={(e) => setSearch(e.target.value)}
+            autoFocus
+          />
+        </div>
+      )}
+
       {loading ? (
         <p className="text-gray-400 dark:text-slate-500">Chargement…</p>
       ) : modules.length === 0 ? (
         <div className="card text-center text-gray-500 dark:text-slate-400">
           Aucun module. Créez-en un pour commencer.
         </div>
+      ) : filtered.length === 0 ? (
+        <div className="card text-center text-gray-500 dark:text-slate-400">
+          Aucun module ne correspond à «&nbsp;{search}&nbsp;».
+        </div>
       ) : (
         <div className="grid gap-4 sm:grid-cols-2">
-          {modules.map((m) => (
+          {filtered.map((m) => (
             <div key={m.id} className="card">
               <div className="flex items-start justify-between">
                 <Link href={`/modules/${m.id}`} className="group">

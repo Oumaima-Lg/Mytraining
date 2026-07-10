@@ -1,0 +1,72 @@
+{
+  "module": "Docker",
+  "media_dir": "seed_data/docker_media",
+  "description": "Docker : conteneurisation — images, conteneurs, Dockerfile, Docker Compose, volumes, Docker Hub, Docker Daemon et commandes (avec schémas).",
+  "questions": [
+    {
+      "prompt": "Qu'est-ce que Docker et un conteneur ?",
+      "answer_text": "Docker est une plateforme de conteneurisation qui permet de packager, distribuer et exécuter des applications dans des conteneurs. Un conteneur Docker est une instance en cours d'exécution d'une image, créée à partir d'un Dockerfile qui contient les instructions de configuration de l'image.",
+      "images": ["docker_image1.jpeg", "docker_image2.gif", "docker_image3.png"]
+    },
+    {
+      "prompt": "Quels sont les avantages de Docker ?",
+      "answer_text": "1. Isolation 🛡️ : chaque application tourne dans son conteneur (ex : App A avec Node.js 16, App B avec Node.js 18) sans conflit.\n2. Portabilité 🌍 : même environnement partout (dev → test → prod).\n3. Scalabilité 📈 : on peut lancer plusieurs instances facilement (docker run -d -p 8081:8080 my-backend, etc.).\n4. Déploiement rapide ⚡ : un seul fichier pour tout déployer (docker-compose up -d).",
+      "images": []
+    },
+    {
+      "prompt": "Quelle est la différence entre Docker et une machine virtuelle ?",
+      "answer_text": "Docker partage le noyau du système d'exploitation de l'hôte, alors qu'une VM a son propre système d'exploitation complet. Les conteneurs Docker sont donc plus légers et démarrent plus vite.",
+      "images": []
+    },
+    {
+      "prompt": "Qu'est-ce qu'une image Docker ?",
+      "answer_text": "Une image est un template en lecture seule qui contient le code de l'application, les librairies, les dépendances et les fichiers nécessaires.",
+      "images": []
+    },
+    {
+      "prompt": "Qu'est-ce qu'un conteneur Docker ?",
+      "answer_text": "Un conteneur est une instance en cours d'exécution d'une image Docker.",
+      "images": []
+    },
+    {
+      "prompt": "Qu'est-ce qu'un Dockerfile et quelles sont ses instructions principales ?",
+      "answer_text": "Un Dockerfile est un fichier texte contenant les instructions pour construire une image Docker.\nInstructions principales :\n- FROM : image de base (ex : FROM openjdk:17).\n- LABEL : métadonnées.\n- ENV : variables d'environnement.\n- WORKDIR : dossier de travail des commandes suivantes.\n- COPY/ADD : copie des fichiers du PC vers l'image.\n- RUN : exécute une commande à la construction (ex : RUN apt-get install -y curl).\n- EXPOSE : documente le port d'écoute (ne l'ouvre pas).\n- CMD : commande par défaut au démarrage (modifiable).\n- ENTRYPOINT : commande principale figée (on lui passe juste des arguments).",
+      "images": ["docker_image9.png"]
+    },
+    {
+      "prompt": "Qu'est-ce que Docker Compose ?",
+      "answer_text": "Docker Compose est un outil pour définir et gérer des applications multi-conteneurs à l'aide d'un fichier YAML (docker-compose.yml). Il sert par exemple à orchestrer une application Java et sa base de données.",
+      "images": []
+    },
+    {
+      "prompt": "Qu'est-ce qu'un volume Docker et comment partager des données entre conteneurs ?",
+      "answer_text": "Un volume Docker est un mécanisme pour persister des données en dehors du conteneur (les données survivent à la suppression du conteneur). Pour partager des données entre conteneurs, on utilise des volumes nommés (named volumes) ou des bind mounts.",
+      "images": []
+    },
+    {
+      "prompt": "Quelles sont les commandes Docker de base et comment voir les logs d'un conteneur ?",
+      "answer_text": "- docker build : construit une image.\n- docker run : démarre un conteneur.\n- docker ps : liste les conteneurs actifs.\n- docker images : liste les images.\n- docker stop/start : arrête/démarre un conteneur.\n- docker logs <container_id> : affiche les logs d'un conteneur.",
+      "images": []
+    },
+    {
+      "prompt": "Qu'est-ce que Docker Hub et comment y pousser une image ?",
+      "answer_text": "Docker Hub est un registre public d'images Docker. Pour pousser une image : d'abord `docker tag`, puis `docker push`.",
+      "images": []
+    },
+    {
+      "prompt": "Qu'est-ce que le Docker Daemon (dockerd) et comment fonctionne-t-il ?",
+      "answer_text": "Le Docker Daemon (dockerd) est le processus en arrière-plan qui tourne sur ta machine. Son rôle : gérer les objets Docker (images, conteneurs, volumes, réseaux), écouter les requêtes API (depuis la CLI ou d'autres apps), télécharger les images depuis Docker Hub, et construire/exécuter les conteneurs.\n\nFonctionnement : tu utilises la CLI (docker run ...) → la CLI envoie la commande au daemon via l'API Docker → le daemon fait le travail réel. Ex : `docker run nginx` → le daemon vérifie si l'image nginx existe localement, sinon la télécharge depuis Docker Hub, puis démarre un nouveau conteneur.",
+      "images": ["docker_image4.png", "docker_image5.png", "docker_image6.png", "docker_image7.png"]
+    },
+    {
+      "prompt": "Quelles sont les commandes docker-compose principales ?",
+      "answer_text": "- docker-compose up : démarre tous les services (-d détaché, --build reconstruit).\n- docker-compose down : arrête les conteneurs et supprime le réseau (-v supprime aussi les volumes).\n- docker-compose build : (re)construit les images (--no-cache).\n- docker-compose ps : liste les conteneurs et leur état.\n- docker-compose exec <service> <cmd> : exécute une commande dans un conteneur (ex : exec web bash).\n- docker-compose logs : affiche les logs (-f pour suivre en temps réel).\n- docker-compose restart / stop / start : redémarre / arrête / démarre les services.\n- docker-compose config : vérifie et affiche la configuration.\n- docker-compose pull / push : télécharge / pousse les images.\n- docker-compose run <service> <cmd> : exécute une commande dans un conteneur temporaire.",
+      "images": ["docker_image8.png"]
+    },
+    {
+      "prompt": "Comment structurer un fichier docker-compose.yml ?",
+      "answer_text": "- version → version du fichier (3.9 est très utilisée).\n- services → chaque service = un conteneur.\n- image → image utilisée (ou build pour construire depuis un Dockerfile).\n- ports → mapping host:container.\n- environment → variables d'environnement.\n- volumes → pour sauvegarder des données.\n- depends_on → pour démarrer un conteneur après un autre.\n- networks → permet aux conteneurs de communiquer entre eux.",
+      "images": []
+    }
+  ]
+}

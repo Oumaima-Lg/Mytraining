@@ -1,0 +1,490 @@
+{
+  "module": "RH",
+  "description": "Entretien RH : réponses personnelles préparées (parcours, motivations, Oracle) + banque de questions RH à préparer (motivations, compétences, comportement, mises en situation).",
+  "questions": [
+    {
+      "prompt": "Parlez-moi de vous.",
+      "answer_text": "Bonjour, je m'appelle Oumaima Laghjibi, étudiante en dernière année d'ingénierie informatique à la Faculté des Sciences et Techniques de Settat, spécialisée en développement logiciel, avec un intérêt particulier pour le Backend Java.\nAu cours de mon parcours, j'ai réalisé plusieurs projets académiques et stages. Par exemple, chez Arkeos, j'ai développé une application desktop en Java et MySQL pour la gestion des ressources et des réclamations des employés. Plus récemment, j'ai travaillé sur un projet personnel, « Voices of Wisdom », une application web full-stack (Spring Boot pour le backend, React.js pour le frontend, Spring Security et JWT pour la sécurité).\nActuellement, je participe avec une équipe de 5 collègues à une plateforme d'apprentissage rapide basée sur l'IA (Angular & Spring Boot). J'ai aussi contribué à une application mobile de suivi fitness (Flutter & Firebase) et à d'autres projets collaboratifs, ce qui m'a permis de développer mes compétences techniques et mon sens du travail en équipe.\nJe maîtrise principalement Java, Spring Boot, JEE, MySQL et Oracle PL/SQL, ainsi que Git, Docker et Maven. J'ai également suivi des certifications en cloud, DevOps et machine learning.\nAujourd'hui, je souhaite rejoindre Oracle pour mon stage PFE afin de renforcer mes compétences en backend Java, travailler sur des projets à grande échelle et contribuer dans un environnement reconnu pour son excellence technologique."
+    },
+    {
+      "prompt": "Tell me about yourself.",
+      "answer_text": "Hello, my name is Oumaima Laghjibi. I am a final-year Computer Engineering student at the Faculty of Sciences and Techniques in Settat, specializing in software development with a particular interest in Java backend engineering.\nThroughout my academic journey, I have completed several projects and internships. For example, at Arkeos, I developed a desktop application in Java and MySQL to manage resources and employee claims. More recently, I worked on a personal project, 'Voices of Wisdom', a full-stack web application (Spring Boot backend, React.js frontend, Spring Security with JWT).\nCurrently, I am collaborating with a team of five on an AI-based fast-learning platform using Angular and Spring Boot. I also contributed to a mobile fitness tracking app (Flutter & Firebase).\nI am proficient in Java, Spring Boot, JEE, MySQL, and Oracle PL/SQL, and familiar with Git, Docker, and Maven, with certifications in Cloud, DevOps, and Machine Learning.\nToday, I am excited about the opportunity to join Oracle for my end-of-studies internship, to deepen my expertise in backend Java and contribute to an environment recognized for its technological excellence."
+    },
+    {
+      "prompt": "Pourquoi avez-vous choisi Java / le backend comme spécialisation ?",
+      "answer_text": "J'ai choisi le Backend Java parce que Java est un langage solide et largement utilisé dans les grandes entreprises. Le backend m'intéresse particulièrement car il est au cœur du fonctionnement des applications : il gère la logique métier, la sécurité et la communication avec les bases de données. Au fil de mes projets, j'ai découvert que je me sens vraiment à l'aise et passionnée dans ce domaine. J'aime tester mes API avec Postman, résoudre les bugs, améliorer des fonctionnalités, bien organiser la structure du projet et rendre le code plus clair. C'est ce qui me pousse à me spécialiser davantage dans le Backend Java."
+    },
+    {
+      "prompt": "Comment gérez-vous le stress ou la pression des deadlines ?",
+      "answer_text": "Face au stress ou aux deadlines, j'organise mes tâches par priorité et je suis un plan étape par étape. Je prends aussi un moment pour réfléchir calmement avant d'agir, ce qui m'aide à garder mon sang-froid et à rester efficace."
+    },
+    {
+      "prompt": "Préférez-vous travailler seul ou en équipe ? Pourquoi ?",
+      "answer_text": "J'ai déjà travaillé en équipe à plusieurs reprises. Actuellement, je collabore avec cinq collègues sur un projet full-stack (Spring Boot et Angular) ; chacun apporte ses compétences et nous nous répartissons les tâches. J'utilise Git et Jira pour organiser le travail, suivre les tâches et gérer les versions du code. Travailler en équipe me permet d'apprendre des autres, de partager des idées et de progresser plus vite. J'ai aussi participé à plusieurs projets académiques en groupe. Bien sûr, je suis aussi capable de travailler de manière autonome : je développe d'ailleurs un projet full-stack seul, de A à Z, pour renforcer mes compétences."
+    },
+    {
+      "prompt": "Que savez-vous d'Oracle (présentez l'entreprise) ?",
+      "answer_text": "Oracle est une entreprise internationale spécialisée dans les bases de données, le cloud et les applications d'entreprise. Parmi ses produits les plus connus : Oracle Database, très utilisé dans les grandes sociétés pour gérer et sécuriser les données, et Oracle Cloud Infrastructure (OCI), qui fournit des services cloud (stockage, hébergement, analyse) en concurrence avec AWS et Azure. Oracle est aussi à l'origine du langage Java, largement utilisé dans le développement logiciel."
+    },
+    {
+      "prompt": "Connaissez-vous nos produits / solutions ? (Oracle)",
+      "answer_text": "Oui. Par exemple Oracle Database, l'un des systèmes de gestion de bases de données les plus utilisés au monde. Je connais également Oracle Cloud Infrastructure (OCI), qui propose des solutions cloud complètes, du calcul au stockage, en intégrant des services d'intelligence artificielle et de machine learning."
+    },
+    {
+      "prompt": "Pourquoi Oracle et pas une autre entreprise ?",
+      "answer_text": "J'ai choisi de postuler chez Oracle parce que c'est une entreprise reconnue mondialement pour son expertise dans le cloud, les bases de données et l'innovation technologique. Oracle est particulièrement spécialisée dans les solutions logicielles et cloud, ce qui correspond parfaitement à mon projet professionnel. Réaliser mon stage de fin d'études chez Oracle représente une opportunité unique de développer mes compétences, de travailler aux côtés d'experts et d'évoluer dans un environnement innovant et international."
+    },
+    {
+      "prompt": "Comment vous intégrez-vous dans une équipe internationale ?",
+      "answer_text": "Je pense que l'intégration dans une équipe internationale repose sur trois points : la communication claire, le respect des différences culturelles et la collaboration. Durant mes projets académiques, j'ai déjà travaillé avec des personnes ayant des profils différents, ce qui m'a appris à être ouverte, à écouter les autres et à m'adapter."
+    },
+    {
+      "prompt": "Si vous avez un désaccord avec un collègue, que faites-vous ?",
+      "answer_text": "Je commence par écouter attentivement son point de vue pour bien comprendre ses arguments. Ensuite, je partage calmement mon opinion et nous cherchons ensemble une solution qui convienne à tous, en gardant l'objectif du projet comme priorité. Je pense qu'une communication respectueuse et ouverte permet de résoudre la plupart des désaccords."
+    },
+    {
+      "prompt": "Êtes-vous prêt(e) à apprendre rapidement de nouvelles technologies que vous ne connaissez pas encore ?",
+      "answer_text": "Oui, absolument. J'aime apprendre de nouvelles technologies et je m'adapte rapidement. Par exemple, lors de mes projets académiques ou de stages, j'ai souvent dû découvrir de nouveaux langages ou frameworks en peu de temps, ce qui m'a toujours permis de contribuer efficacement au projet."
+    },
+    {
+      "prompt": "Quels sont vos objectifs professionnels à court et long terme ?",
+      "answer_text": ""
+    },
+    {
+      "prompt": "Qu'attendez-vous de ce stage (compétences, expériences, encadrement) ?",
+      "answer_text": ""
+    },
+    {
+      "prompt": "Décrivez-vous en 3 qualités et 3 défauts.",
+      "answer_text": ""
+    },
+    {
+      "prompt": "Comment travaillez-vous en équipe ?",
+      "answer_text": ""
+    },
+    {
+      "prompt": "Donnez-moi un exemple d'un défi que vous avez surmonté.",
+      "answer_text": ""
+    },
+    {
+      "prompt": "Comment vous adaptez-vous aux changements ?",
+      "answer_text": ""
+    },
+    {
+      "prompt": "Parlez-moi de vos projets académiques les plus significatifs.",
+      "answer_text": ""
+    },
+    {
+      "prompt": "Avez-vous déjà travaillé en équipe sur un projet informatique ?",
+      "answer_text": ""
+    },
+    {
+      "prompt": "Quelle a été votre plus grande réussite / fierté ?",
+      "answer_text": ""
+    },
+    {
+      "prompt": "Décrivez une situation où vous avez dû apprendre quelque chose de nouveau rapidement.",
+      "answer_text": ""
+    },
+    {
+      "prompt": "Que savez-vous de notre entreprise ?",
+      "answer_text": ""
+    },
+    {
+      "prompt": "Pourquoi ce poste vous intéresse-t-il ?",
+      "answer_text": ""
+    },
+    {
+      "prompt": "Comment voyez-vous votre intégration dans l'équipe ?",
+      "answer_text": ""
+    },
+    {
+      "prompt": "Quels sont vos plans après le stage ?",
+      "answer_text": ""
+    },
+    {
+      "prompt": "Êtes-vous disponible pour travailler à temps plein ?",
+      "answer_text": ""
+    },
+    {
+      "prompt": "Seriez-vous intéressé(e) par un CDI après le stage ?",
+      "answer_text": ""
+    },
+    {
+      "prompt": "Avez-vous des questions sur l'entreprise ou le poste ?",
+      "answer_text": ""
+    },
+    {
+      "prompt": "Comment réagiriez-vous si vous ne compreniez pas une tâche assignée ?",
+      "answer_text": ""
+    },
+    {
+      "prompt": "Que feriez-vous si vous n'arriviez pas à respecter un délai ?",
+      "answer_text": ""
+    },
+    {
+      "prompt": "Comment gérez-vous les critiques constructives ?",
+      "answer_text": ""
+    },
+    {
+      "prompt": "Pourquoi avez-vous choisi Oracle pour votre stage PFE ?",
+      "answer_text": ""
+    },
+    {
+      "prompt": "Quels sont vos points forts et vos points faibles ?",
+      "answer_text": ""
+    },
+    {
+      "prompt": "Parlez-moi d'une difficulté rencontrée dans un projet et comment vous l'avez surmontée.",
+      "answer_text": ""
+    },
+    {
+      "prompt": "Où vous voyez-vous dans 5 ans ?",
+      "answer_text": ""
+    },
+    {
+      "prompt": "Quelles sont vos disponibilités et vos contraintes ?",
+      "answer_text": ""
+    },
+    {
+      "prompt": "Pourquoi Java et pas un autre langage ?",
+      "answer_text": ""
+    },
+    {
+      "prompt": "Quelles technologies / frameworks Java connaissez-vous (Spring Boot, Hibernate, Maven, etc.) ?",
+      "answer_text": ""
+    },
+    {
+      "prompt": "Avez-vous déjà travaillé sur des bases de données (Oracle DB, MySQL, MongoDB…) ?",
+      "answer_text": ""
+    },
+    {
+      "prompt": "Avez-vous déjà utilisé Git / GitHub pour collaborer sur un projet ?",
+      "answer_text": ""
+    },
+    {
+      "prompt": "Qui êtes-vous ?",
+      "answer_text": ""
+    },
+    {
+      "prompt": "Quels sont vos points forts ?",
+      "answer_text": ""
+    },
+    {
+      "prompt": "Quels sont vos points faibles ?",
+      "answer_text": ""
+    },
+    {
+      "prompt": "Quel bilan tirez-vous de vos stages ?",
+      "answer_text": ""
+    },
+    {
+      "prompt": "Quels sont les principaux atouts à avoir pour obtenir cet emploi ?",
+      "answer_text": ""
+    },
+    {
+      "prompt": "Pourquoi pensez-vous donner satisfaction dans cet emploi ?",
+      "answer_text": ""
+    },
+    {
+      "prompt": "Quel type de patron souhaiteriez-vous avoir ?",
+      "answer_text": ""
+    },
+    {
+      "prompt": "Avez-vous quelques choses à ajouter ?",
+      "answer_text": ""
+    },
+    {
+      "prompt": "Pourquoi êtes-vous intéressés par le stage ou l’emploi proposé ?",
+      "answer_text": ""
+    },
+    {
+      "prompt": "Pourquoi êtes-vous attirés par cette profession ?",
+      "answer_text": ""
+    },
+    {
+      "prompt": "Quel type d’activités vous attire le plus ?",
+      "answer_text": ""
+    },
+    {
+      "prompt": "Pourquoi voulez-vous travaillez dans notre société ?",
+      "answer_text": ""
+    },
+    {
+      "prompt": "Quel est votre objectif de carrière ?",
+      "answer_text": ""
+    },
+    {
+      "prompt": "Qu’est-ce qui vous attire dans notre région ?",
+      "answer_text": ""
+    },
+    {
+      "prompt": "Quels sont vos centres d’intérêts ?",
+      "answer_text": ""
+    },
+    {
+      "prompt": "Quelles compétences avez-vous développé dans vos activités professionnelles ?",
+      "answer_text": ""
+    },
+    {
+      "prompt": "Quelles compétences avez-vous développé dans vos activités socio-culturelles ?",
+      "answer_text": ""
+    },
+    {
+      "prompt": "Quelles compétences avez-vous développé dans vos activités de loisirs ?",
+      "answer_text": ""
+    },
+    {
+      "prompt": "Quelle langue parlez-vous couramment ?",
+      "answer_text": ""
+    },
+    {
+      "prompt": "Ne pensez-vous pas d’être une femme pour ce type d’emploi ?",
+      "answer_text": ""
+    },
+    {
+      "prompt": "N’êtes-vous pas trop jeune pour ce poste ?",
+      "answer_text": ""
+    },
+    {
+      "prompt": "Etes-vous quelqu’un de consciencieux ?",
+      "answer_text": ""
+    },
+    {
+      "prompt": "Sur combien de personnes avez- vous de l’influence ?",
+      "answer_text": ""
+    },
+    {
+      "prompt": "Dans un groupe, êtes-vous habituellement le leader ?",
+      "answer_text": ""
+    },
+    {
+      "prompt": "Avez-vous déjà eu à diriger des gens ?",
+      "answer_text": ""
+    },
+    {
+      "prompt": "En quelles circonstances avez-vous manifester des aptitudes à stimuler, à animer ?",
+      "answer_text": ""
+    },
+    {
+      "prompt": "Quelles responsabilités avez-vous déjà exercés ?",
+      "answer_text": ""
+    },
+    {
+      "prompt": "Dans quelle situation avez-vous manifester votre sens de responsabilités ?",
+      "answer_text": ""
+    },
+    {
+      "prompt": "Quelles opinions difficiles avez-vous eu à défendre ?",
+      "answer_text": ""
+    },
+    {
+      "prompt": "Quelles situations conflictuelles avez- vous eu à affronter ?",
+      "answer_text": ""
+    },
+    {
+      "prompt": "Comment se sont passé vos premiers conflits avec vos parents ?",
+      "answer_text": ""
+    },
+    {
+      "prompt": "Quelle expérience avez-vous menez à termes ?",
+      "answer_text": ""
+    },
+    {
+      "prompt": "Qu’avez-vous réalisé de particulièrement marquant ?",
+      "answer_text": ""
+    },
+    {
+      "prompt": "De quelles actions êtres vous le plus fier ?",
+      "answer_text": ""
+    },
+    {
+      "prompt": "Quels changements importants avez-vous vécu et comment vous y êtes-vous adapté ?",
+      "answer_text": ""
+    },
+    {
+      "prompt": "Avez-vous surtout des activités sédentaires ?",
+      "answer_text": ""
+    },
+    {
+      "prompt": "Préfériez-vous travailler au même endroit ou à des endroits différents ?",
+      "answer_text": ""
+    },
+    {
+      "prompt": "Accepteriez-vous des déplacements à des villes loin de votre logement, ou bien à l’étranger ?",
+      "answer_text": ""
+    },
+    {
+      "prompt": "Quelle activité collective avez-vous déjà pratiquées ?",
+      "answer_text": ""
+    },
+    {
+      "prompt": "Quand avez-vous fait particulièrement preuve de capacités de communication ?",
+      "answer_text": ""
+    },
+    {
+      "prompt": "Quelle négociation avez-vous déjà mener avec succès ?",
+      "answer_text": ""
+    },
+    {
+      "prompt": "Comment vous y prenez-vous pour négocier quelques choses ?",
+      "answer_text": ""
+    },
+    {
+      "prompt": "Dans quelles circonstances avez-vous fait preuve d’autonomie ?",
+      "answer_text": ""
+    },
+    {
+      "prompt": "Quand avez-vous été autonome pour la première fois ?",
+      "answer_text": ""
+    },
+    {
+      "prompt": "Avez-vous voyagé seul (e) ?",
+      "answer_text": ""
+    },
+    {
+      "prompt": "Vous arrive-t-il d’être angoissé ?",
+      "answer_text": ""
+    },
+    {
+      "prompt": "Vous mettez-vous souvent en colère ?",
+      "answer_text": ""
+    },
+    {
+      "prompt": "Quand et comment avez-vous manifester une confiance particulière en vos capacités ?",
+      "answer_text": ""
+    },
+    {
+      "prompt": "Dans quelles circonstances avez-vous douter de vous ?",
+      "answer_text": ""
+    },
+    {
+      "prompt": "Que souhaitez-vous réussir dans votre expérience ?",
+      "answer_text": ""
+    },
+    {
+      "prompt": "En quelle situation avez-vous eu à vous adapter à un groupe social différent ?",
+      "answer_text": ""
+    },
+    {
+      "prompt": "Abandonnez-vous facilement quand les événements ne se déroulent pas exactement comme",
+      "answer_text": ""
+    },
+    {
+      "prompt": "Qu’est-ce qui vous enthousiasme ?",
+      "answer_text": ""
+    },
+    {
+      "prompt": "Etes-vous capable de vous enthousiasmer pour certaines causes ?",
+      "answer_text": ""
+    },
+    {
+      "prompt": "Quand et comment avez-vous eu à faire preuve de diplomatie ?",
+      "answer_text": ""
+    },
+    {
+      "prompt": "Quelles activités avez-vous eu à organiser pour un groupe ?",
+      "answer_text": ""
+    },
+    {
+      "prompt": "Comment vous organisez-vous pour préparer vos examens ?",
+      "answer_text": ""
+    },
+    {
+      "prompt": "En quelles circonstances avez-vous manifester un esprit de débrouillardise ?",
+      "answer_text": ""
+    },
+    {
+      "prompt": "Quand avez-vous preuve d’esprit d’initiative ?",
+      "answer_text": ""
+    },
+    {
+      "prompt": "Vous arrive-t-il fréquemment de contester ?",
+      "answer_text": ""
+    },
+    {
+      "prompt": "Que pensez-vous de la dernière grève des enseignants contractuels ?",
+      "answer_text": ""
+    },
+    {
+      "prompt": "A quelles occasions avez-vous fait preuve de maturité ?",
+      "answer_text": ""
+    },
+    {
+      "prompt": "De quoi doutez-vous ?",
+      "answer_text": ""
+    },
+    {
+      "prompt": "Pouvez- vous parler du dernier livre que vous avez lu ?",
+      "answer_text": ""
+    },
+    {
+      "prompt": "Quand et comment avez-vous fait preuve de tolérance ?",
+      "answer_text": ""
+    },
+    {
+      "prompt": "Etes- vous curieux de nature ?",
+      "answer_text": ""
+    },
+    {
+      "prompt": "Vous dites que vous êtes un gagnant, un battant, que vous aimez la compétition. Pourtant, vous",
+      "answer_text": ""
+    },
+    {
+      "prompt": "Vous dites que vous êtes passionné par notre secteur d’activités. Or, vous avez présenté votre",
+      "answer_text": ""
+    },
+    {
+      "prompt": "Quels rapports existent-iles entre vos centres d’intérêts et vos objectifs professionnels ?",
+      "answer_text": ""
+    },
+    {
+      "prompt": "Quels liens pouvez-vous établir entre vos qualités et le poste proposé ?",
+      "answer_text": ""
+    },
+    {
+      "prompt": "Quelles sont par ordre décroissant d’importance, les informations que vous avez envie de",
+      "answer_text": ""
+    },
+    {
+      "prompt": "Quel sujet vous inspire des idées très différentes des celles émises par les autres ?",
+      "answer_text": ""
+    },
+    {
+      "prompt": "Quand et comment avez-vous fait preuve du sens de l’innovation ?",
+      "answer_text": ""
+    },
+    {
+      "prompt": "Quand avez-vous manifesté de la rigueur intellectuelle ?",
+      "answer_text": ""
+    },
+    {
+      "prompt": "Pouvez-vous me citer un exemple de votre rapidité de compréhension ?",
+      "answer_text": ""
+    },
+    {
+      "prompt": "Dans quelle situation avez-vous eu à convaincre ou à persuader autrui ?",
+      "answer_text": ""
+    },
+    {
+      "prompt": "Essayez de me persuader de retenir votre candidature plutôt qu’une autre ?",
+      "answer_text": ""
+    },
+    {
+      "prompt": "Pouvez-vous me citer un exemple où vous avez fait preuve d’une bonne capacité de résistance",
+      "answer_text": ""
+    },
+    {
+      "prompt": "Etes-vous quelqu’un de dynamique ?",
+      "answer_text": ""
+    },
+    {
+      "prompt": "Etes-vous à l’aise en toutes circonstances ?",
+      "answer_text": ""
+    },
+    {
+      "prompt": "Dans quelles circonstances n’êtes-vous pas à l’aise ?",
+      "answer_text": ""
+    }
+  ]
+}

@@ -1,0 +1,37 @@
+{
+  "module": "Keycloak",
+  "media_dir": "seed_data/keycloak_media",
+  "description": "Keycloak & sécurité : IAM/SSO, différence avec JWT, OAuth 2.0 (autorisation) et OpenID Connect (authentification, ID token) — avec schémas.",
+  "questions": [
+    {
+      "prompt": "Qu'est-ce que Keycloak et à quoi sert-il ?",
+      "answer_text": "Keycloak est un serveur d'identités (Identity and Access Management – IAM) qui permet aux utilisateurs de se connecter une seule fois (Single Sign-On – SSO) et d'accéder à plusieurs applications sans se reconnecter.\n\nIl gère : l'authentification (connexion, déconnexion, mots de passe), l'autorisation (droits selon les rôles), le SSO, la fédération d'identités (connexion via Google, Facebook, GitHub…), et la gestion des utilisateurs et des rôles.",
+      "images": []
+    },
+    {
+      "prompt": "Quelle est la différence entre Keycloak et JWT ?",
+      "answer_text": "- Keycloak : un outil complet (serveur d'authentification et de gestion des accès). Il gère l'authentification, les rôles, les utilisateurs, le SSO, le renouvellement de token, etc. C'est un serveur d'identité qui crée et vérifie les JWT.\n- JWT (JSON Web Token) : un simple format de jeton (standard de données) qui transporte de manière sécurisée des informations (nom, rôle, permissions…) signées par un serveur. Il ne gère pas l'authentification par lui-même.\n\nEn résumé : Keycloak est le serveur ; le JWT est le format de token que Keycloak émet.",
+      "images": ["kc_image1.png"]
+    },
+    {
+      "prompt": "Qu'est-ce que OAuth 2.0 et comment fonctionne-t-il ?",
+      "answer_text": "OAuth 2.0 est un protocole d'autorisation qui permet à une application d'accéder aux ressources d'un utilisateur sans connaître son mot de passe (accès limité et sécurisé via un token).\n\nExemple « Se connecter avec Google » : tu cliques → l'app te redirige vers Google → tu entres tes identifiants sur Google uniquement → Google demande ton autorisation → tu acceptes → Google envoie un token à l'application → l'app utilise ce token pour accéder à certaines infos. ⚠️ L'application ne voit jamais ton mot de passe.",
+      "images": ["kc_image2.png", "kc_image3.png"]
+    },
+    {
+      "prompt": "Quels sont les composants principaux d'OAuth 2.0 ?",
+      "answer_text": "- Resource Owner : l'utilisateur (toi).\n- Client : l'application.\n- Authorization Server : le serveur qui authentifie (Google, Keycloak).\n- Access Token : le jeton utilisé pour accéder aux ressources.\n- Resource Server : le serveur qui contient les données.\n\nFlow (Spring Boot / Keycloak) : l'utilisateur se connecte à Keycloak → Keycloak donne un access token → le backend Spring Boot reçoit et vérifie le token → autorise ou refuse l'accès.",
+      "images": []
+    },
+    {
+      "prompt": "Qu'est-ce que OpenID Connect (OIDC) et l'ID Token ?",
+      "answer_text": "OpenID Connect est une couche ajoutée au-dessus d'OAuth 2.0 pour permettre l'authentification des utilisateurs.\n- OAuth2 → autorisation (donner accès à des ressources).\n- OpenID Connect → authentification (savoir QUI est l'utilisateur).\n\nOIDC ajoute l'ID Token, qui contient les informations sur l'utilisateur, par ex. :\n{\n  \"sub\": \"123456\",\n  \"name\": \"Oumaima Laghjibi\",\n  \"email\": \"oumaima@gmail.com\"\n}\nAvec Keycloak : access_token → accéder aux APIs ; id_token → identifier l'utilisateur.",
+      "images": ["kc_image4.png", "kc_image5.png", "kc_image6.png"]
+    },
+    {
+      "prompt": "Quelle est la différence entre OAuth 2.0 et OpenID Connect ?",
+      "answer_text": "- OAuth2 : autorisation ; donne un access token ; sert à l'accès aux ressources ; répond à « Que peut faire l'utilisateur ? ».\n- OpenID Connect : authentification (+ autorisation) ; donne un access token + un ID token ; identifie l'utilisateur ; répond à « Qui est l'utilisateur ? ».\n\n👉 OpenID Connect utilise OAuth2 et ajoute l'identité de l'utilisateur via l'ID token.",
+      "images": []
+    }
+  ]
+}

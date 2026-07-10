@@ -1,0 +1,62 @@
+{
+  "module": "Kubernetes",
+  "media_dir": "seed_data/k8s_media",
+  "description": "Kubernetes (K8s) : orchestration de conteneurs — architecture (Control Plane / Nodes), Pod, Deployment, Service, Ingress, StatefulSet (avec schémas).",
+  "questions": [
+    {
+      "prompt": "Qu'est-ce que Kubernetes (K8s) ?",
+      "answer_text": "Kubernetes est une plateforme open-source qui permet de déployer, gérer et orchestrer des applications dans des conteneurs (comme Docker). Au lieu de lancer manuellement chaque application, Kubernetes automatise tout : lancer des conteneurs sur différents serveurs, redémarrer automatiquement les conteneurs en panne, équilibrer la charge, et mettre à l'échelle les applications selon la demande.",
+      "images": ["k8s_image4.png"]
+    },
+    {
+      "prompt": "Pourquoi utiliser Kubernetes ?",
+      "answer_text": "- Automatisation : tu ne gères pas les conteneurs un par un.\n- Haute disponibilité : si un conteneur tombe en panne, Kubernetes le relance.\n- Scalabilité : facile d'augmenter/réduire le nombre de conteneurs selon le trafic.\n- Portabilité : fonctionne sur n'importe quel cloud ou serveur local.",
+      "images": []
+    },
+    {
+      "prompt": "Quels sont les concepts clés de Kubernetes (Pod, Node, Cluster, Deployment, Service) ?",
+      "answer_text": "- Pod : la plus petite unité de Kubernetes, contient un ou plusieurs conteneurs.\n- Node : un serveur (physique ou virtuel) où tournent les pods.\n- Cluster : un ensemble de nodes géré par Kubernetes.\n- Deployment : définit comment les pods doivent être créés et mis à jour.\n- Service : rend les pods accessibles depuis l'extérieur ou entre eux.\n\nAnalogie : Control Plane = la direction (décide) ; Nodes = les employés (font le travail) ; Pods = les tâches précises.",
+      "images": ["k8s_image5.png"]
+    },
+    {
+      "prompt": "Quelle est l'architecture de Kubernetes (Control Plane et Nodes) ?",
+      "answer_text": "Un cluster Kubernetes est composé de deux grandes parties :\n- Plan de contrôle (Control Plane) → le « cerveau » qui prend les décisions.\n- Nœuds (Nodes) → les « ouvriers » qui exécutent les applications.",
+      "images": ["k8s_image8.png"]
+    },
+    {
+      "prompt": "Quels sont les composants du Control Plane (API Server, Scheduler, Controller Manager, etcd) ?",
+      "answer_text": "- API Server (kube-apiserver) : la porte d'entrée du cluster ; toutes les commandes (kubectl, dashboard…) passent par lui.\n- Scheduler : décide sur quel nœud lancer un Pod (ex : évite un nœud trop chargé).\n- Controller Manager : surveille l'état du cluster et corrige si besoin (ex : tu demandes 3 Pods, il n'en reste que 2 → il en recrée 1).\n- etcd : la base de données clé/valeur où Kubernetes stocke tout l'état du cluster.",
+      "images": []
+    },
+    {
+      "prompt": "Que contiennent les Nodes (Kubelet, Kube-proxy, Container Runtime) ?",
+      "answer_text": "Un nœud est une machine qui exécute tes conteneurs. Il contient :\n- Kubelet : un agent qui communique avec le Control Plane et exécute les Pods donnés par le Scheduler (le « chef d'équipe »).\n- Kube-proxy : gère le réseau, donne une IP aux Pods et permet la communication entre Pods et avec l'extérieur (le « plombier/électricien »).\n- Container Runtime (Docker, containerd, CRI-O) : le moteur qui lance réellement les conteneurs (« la machine ouvrière »).",
+      "images": []
+    },
+    {
+      "prompt": "Qu'est-ce qu'un Pod en Kubernetes ?",
+      "answer_text": "Un Pod est la plus petite unité exécutable dans Kubernetes : une « boîte » qui contient un ou plusieurs conteneurs. Kubernetes ne lance jamais directement un conteneur → il lance un Pod qui contient le conteneur.\nCaractéristiques :\n- Contient 1 ou plusieurs conteneurs (souvent 1, parfois plusieurs très liés, ex : app + agent de monitoring).\n- Partage de ressources : les conteneurs d'un Pod partagent le même réseau (même IP/port) et peuvent partager du stockage (volumes).\n- Durée de vie courte : un Pod peut mourir et être recréé automatiquement par Kubernetes.",
+      "images": []
+    },
+    {
+      "prompt": "Que sont Namespace, ConfigMap, Deployment et Service ?",
+      "answer_text": "- Namespace : un conteneur logique pour isoler et organiser les ressources (« boîte de rangement / département »).\n- ConfigMap : stocke des données de configuration non sensibles en clé-valeur (« fichier de configuration »).\n- Deployment : contrôleur qui gère les Pods et garantit qu'un nombre spécifié de Pods tourne toujours (« chef qui gère les employés »).\n- Service : point d'accès réseau stable pour communiquer avec un groupe de Pods (« porte d'entrée / standard téléphonique »).\n\nNote : les Pods ne sont pas définis directement dans le YAML ; ils le sont indirectement via le Deployment.",
+      "images": []
+    },
+    {
+      "prompt": "Quelle est la différence entre Deployment et ReplicaSet ?",
+      "answer_text": "Le Deployment DÉCIDE combien de Pods il veut (ex : replicas: 3), mais le ReplicaSet est celui qui CRÉE et MAINTIENT physiquement ces Pods. Le Deployment gère le ReplicaSet (et donc les mises à jour progressives / rolling updates).",
+      "images": ["k8s_image3.png"]
+    },
+    {
+      "prompt": "Quelle est la différence entre Ingress et Service ?",
+      "answer_text": "Avec des Services LoadBalancer (SANS Ingress) : chaque application a son propre LoadBalancer (IP différente) → coût de plusieurs LoadBalancers.\nAvec Ingress (OPTIMAL) : un seul LoadBalancer pointe vers l'Ingress (routeur intelligent) qui route selon le domaine/chemin (app1.com → Service app1, app2.com → Service app2…) → coût d'un seul LoadBalancer.",
+      "images": ["k8s_image1.png"]
+    },
+    {
+      "prompt": "Qu'est-ce qu'un StatefulSet ?",
+      "answer_text": "Un StatefulSet est un contrôleur Kubernetes pour les applications avec état (stateful), qui a besoin d'une identité stable et persistante des Pods (nom et stockage stables), contrairement au Deployment qui gère des Pods interchangeables (stateless). Utile pour les bases de données, files de messages, etc.",
+      "images": ["k8s_image2.png", "k8s_image6.png"]
+    }
+  ]
+}

@@ -1,0 +1,56 @@
+{
+  "module": "Microservices",
+  "media_dir": "seed_data/micro_media",
+  "description": "Architecture Microservices : monolithique vs microservices, communication (REST/async), Service Discovery, API Gateway, config centralisée, résilience (Resilience4j) et Kubernetes.",
+  "questions": [
+    {
+      "prompt": "Quelle est la différence entre une architecture monolithique et une architecture microservices ?",
+      "answer_text": "Monolithique : toutes les fonctionnalités dans une seule application, déployée et exécutée comme une unité unique.\nMicroservices : application découpée en plusieurs services indépendants, déployés séparément.\n\n- Structure : un seul bloc / plusieurs petits services.\n- Langage : un seul / plusieurs possibles (Java, Python, Node.js…).\n- Base de données : une seule / une base par service (recommandé).\n- Déploiement : une seule unité (.war/.jar) / déploiement indépendant de chaque service.\n- Communication : appels directs en mémoire / communication réseau (REST, HTTP, gRPC, messaging).\n- Scalabilité : on scale toute l'application / on scale seulement le service nécessaire.\n- Tolérance aux pannes : un bug impacte tout / un service en panne n'arrête pas tout.\n- Maintenance : plus difficile quand ça grandit / plus facile (services isolés)."
+    },
+    {
+      "prompt": "Comment les microservices communiquent-ils entre eux ?",
+      "answer_text": "Deux modes principaux :\n- Synchrone (REST) : le plus utilisé, basé sur HTTP.\n- Asynchrone (messagerie) : via un broker (Kafka, RabbitMQ), les services ne se parlent pas directement.\n\nSchéma asynchrone : Service A → [Messagerie] → Service B."
+    },
+    {
+      "prompt": "REST : quelle est la différence entre RestTemplate, WebClient et Feign Client ?",
+      "answer_text": "- RestTemplate : client HTTP synchrone qui bloque en attendant la réponse (déprécié).\n- WebClient : client HTTP asynchrone et réactif qui ne bloque pas (recommandé).\n- Feign Client (@FeignClient) : client HTTP déclaratif qui génère le code automatiquement via des interfaces (idéal pour les microservices)."
+    },
+    {
+      "prompt": "Communication asynchrone : Kafka vs RabbitMQ et Event-Driven Architecture ?",
+      "answer_text": "Kafka (gros volume) et RabbitMQ (tâches simples) sont des serveurs de messagerie qui stockent temporairement ou durablement les messages pour assurer leur livraison.\n\nEvent-Driven Architecture : les microservices communiquent via des événements publiés dans un broker ; les services réagissent de manière asynchrone.\n- Publisher : crée l'événement.\n- Broker (Kafka / RabbitMQ) : reçoit, garde et distribue l'événement.\n- Consumers : écoutent et réagissent.\nSchéma : Publisher → Broker → Consumers."
+    },
+    {
+      "prompt": "Qu'est-ce que le Service Discovery (Eureka) ?",
+      "answer_text": "Eureka (Netflix) est un service de découverte qui permet aux microservices de s'enregistrer automatiquement et de se localiser dynamiquement par nom de service, sans dépendre d'adresses IP fixes.\n- Eureka Server : le registre.\n- Eureka Client : chaque microservice.\nSans Eureka : http://localhost:8081/users. Avec Eureka : http://USER-SERVICE/users (Eureka traduit le nom → IP+port).\nAnnotations : @EnableEurekaServer, @EnableDiscoveryClient.\n\nLe Service Discovery permet de trouver un service ; le Registry Service stocke les informations ; le Load Balancer répartit les requêtes entre plusieurs instances d'un service.",
+      "images": ["micro_image1.png"]
+    },
+    {
+      "prompt": "Qu'est-ce qu'une API Gateway (Spring Cloud Gateway) ?",
+      "answer_text": "L'API Gateway est le point d'entrée unique des microservices. Elle gère le routage, la sécurité, le filtrage et le rate limiting.\n\nRôles :\n- Point d'entrée unique (tous les appels externes passent par elle).\n- Routage (dirige vers le bon microservice).\n- Sécurité (authentification/autorisation, validation des tokens JWT, rôles).\n- Filtrage (modifier la requête/réponse, ex : ajouter un header).\n- Rate Limiting (limiter le nombre de requêtes).\n\nÀ connaître : Routes (id, uri, predicates), Filters (modifient requêtes/réponses), Predicates (conditions, ex : Path=/users/**).\n\nExemple :\nspring:\n  cloud:\n    gateway:\n      routes:\n        - id: user-service\n          uri: lb://USER-SERVICE\n          predicates:\n            - Path=/users/**"
+    },
+    {
+      "prompt": "Qu'est-ce que la configuration centralisée (Spring Cloud Config) ?",
+      "answer_text": "Spring Cloud Config centralise la configuration des microservices dans un dépôt Git, avec support des environnements et du rafraîchissement dynamique (sans redémarrer l'application).\n- Config Server : lit la configuration depuis Git et la fournit aux microservices.\n- Config Client : chaque microservice demande sa configuration au Config Server au démarrage.\n- Les fichiers sont dans Git (user-service-dev.yml, user-service-test.yml, user-service-prod.yml).\nAnnotation : @EnableConfigServer.\nChaque environnement (dev, test, prod) a sa config, chargée automatiquement."
+    },
+    {
+      "prompt": "Comment rafraîchir la configuration centralisée (refresh, busrefresh, monitor) ?",
+      "answer_text": "3 solutions :\n1. /actuator/refresh (MANUEL) : après un changement dans Git, chaque microservice appelle manuellement /actuator/refresh.\n2. Spring Cloud Bus + RabbitMQ/Kafka (SEMI-AUTOMATIQUE) : un appel unique à /actuator/busrefresh diffuse l'événement à tous les services.\n3. Spring Cloud Bus + Config Monitor (100 % AUTOMATIQUE) : le Monitor détecte le changement poussé dans Git et déclenche le Bus pour rafraîchir tous les services sans intervention manuelle."
+    },
+    {
+      "prompt": "Qu'est-ce que la résilience et le Circuit Breaker (Resilience4j) ?",
+      "answer_text": "La résilience est la capacité d'un système à continuer de fonctionner même quand une partie tombe en panne (Resilience4j).\n\nCircuit Breaker : coupe les appels quand un service est en panne et les réactive quand il est stable. États :\n- CLOSED : toutes les requêtes passent, les erreurs sont comptées.\n- OPEN : aucune requête ne passe, les appels échouent immédiatement, le fallback est exécuté.\n- HALF-OPEN : quelques requêtes de test ; si elles réussissent → CLOSED, sinon → OPEN.\n\nAutres patterns : Fallback (réponse alternative), Timeout (évite d'attendre indéfiniment), Retry (réessaye automatiquement), Rate Limiter (limite les requêtes), Bulkhead (isole les ressources pour éviter une panne globale)."
+    },
+    {
+      "prompt": "Quel est le rôle de Kubernetes dans les microservices ?",
+      "answer_text": "Kubernetes est une plateforme d'orchestration de conteneurs qui déploie, gère, scale et rend résilients les microservices en production. Il permet de :\n- Déployer les microservices.\n- Redémarrer automatiquement les services en panne.\n- Répartir la charge (load balancing).\n- Scaler automatiquement (augmenter/réduire le nombre d'instances).\n- Mettre à jour sans interruption (rolling update).\n- Gérer la configuration et les secrets."
+    },
+    {
+      "prompt": "Quels sont les concepts clés de Kubernetes (Container, Pod, Deployment, Service, Ingress) ?",
+      "answer_text": "- Container (Docker) : chaque microservice est packagé dans une image Docker, indépendant des autres.\n- Pod : plus petite unité Kubernetes ; contient un ou plusieurs containers (1 microservice = généralement 1 Pod).\n- Deployment : définit combien de Pods, gère le scaling, les redémarrages et les rolling updates.\n- Service (Kubernetes Service) : fournit une IP stable, fait du load balancing et permet aux microservices de communiquer (⚠️ à ne pas confondre avec un microservice).\n- Ingress : point d'entrée externe, expose les microservices vers l'extérieur (rôle proche d'une API Gateway)."
+    },
+    {
+      "prompt": "Kubernetes vs Spring Cloud : qui gère quoi ?",
+      "answer_text": "- Service Discovery : Eureka (Spring Cloud) / Kubernetes Service.\n- Load Balancing : Spring Cloud LoadBalancer / intégré dans Kubernetes.\n- Configuration : Config Server / ConfigMap.\n- Secrets : (Spring Cloud ❌) / Secret (Kubernetes).\n- Scaling : (❌) / HPA (Horizontal Pod Autoscaler).\n- Auto-restart : (❌) / Oui.\n\n👉 En production moderne, Kubernetes remplace souvent une partie de Spring Cloud. Il reste complémentaire avec Resilience4j / Circuit Breaker (redémarrage automatique des Pods, isolation des pannes, scaling horizontal)."
+    }
+  ]
+}
