@@ -1,4 +1,5 @@
 """Interview configuration + run lifecycle."""
+import random
 from datetime import datetime
 
 from flask import Blueprint, jsonify, request, abort
@@ -6,6 +7,7 @@ from flask import Blueprint, jsonify, request, abort
 from ..extensions import db
 from ..models import Interview, Module, InterviewRun, AnswerRecording, Question
 from ..common import current_user, owned_or_404
+from ..storage import remove_object
 
 bp = Blueprint("interviews", __name__)
 
@@ -19,13 +21,14 @@ def _get_run(run_id: int, user_id: int) -> InterviewRun:
 
 
 def _ordered_questions(interview: Interview) -> list:
-    """Flatten questions of the selected modules, grouped by module order."""
+    """Flatten questions of the selected modules, shuffled (mixed, not in order)."""
     items = []
     for module in interview.modules:
         for q in module.questions:
             data = q.to_dict()
             data["module_name"] = module.name
             items.append(data)
+    random.shuffle(items)
     return items
 
 
@@ -46,8 +49,8 @@ def create_interview():
 
     if not name:
         return jsonify(error="Le nom de l'entretien est requis"), 400
-    if not (2 <= len(module_ids) <= 3):
-        return jsonify(error="Choisissez entre 2 et 3 modules"), 400
+    if not (1 <= len(module_ids) <= 3):
+        return jsonify(error="Choisissez entre 1 et 3 modules"), 400
 
     modules = Module.query.filter(
         Module.id.in_(module_ids), Module.user_id == user.id
@@ -121,6 +124,7 @@ def list_runs():
             "id": run.id,
             "interview_id": run.interview_id,
             "interview_name": run.interview.name if run.interview else "Entretien supprimé",
+            "modules": [m.name for m in run.interview.modules] if run.interview else [],
             "status": run.status,
             "started_at": run.started_at.isoformat(),
             "finished_at": run.finished_at.isoformat() if run.finished_at else None,
@@ -170,3 +174,23 @@ def finish_run(run_id):
     run.finished_at = datetime.utcnow()
     db.session.commit()
     return jsonify(run=run.to_dict())
+
+
+@bp.delete("/runs/<int:run_id>")
+def delete_run(run_id):
+    """Delete a history entry: the run, its recordings, and their MinIO videos."""
+    user = current_user()
+    run = _get_run(run_id, user.id)
+
+    # Remove the recorded media from MinIO first (best-effort — a missing
+    # object shouldn't block deleting the DB rows).
+    for rec in run.recordings:
+        if rec.minio_key:
+            try:
+                remove_object(rec.minio_key)
+            except Exception:
+                pass
+
+    db.session.delete(run)  # cascades to AnswerRecording rows
+    db.session.commit()
+    return jsonify(ok=True)

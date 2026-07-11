@@ -52,6 +52,12 @@ def presigned_get(object_key: str, expires_seconds: int = 3600) -> str:
     )
 
 
+def remove_object(object_key: str) -> None:
+    """Delete one object from the bucket (best-effort)."""
+    client = _client()
+    client.remove_object(current_app.config["MINIO_BUCKET"], object_key)
+
+
 def download_bytes(object_key: str) -> bytes:
     """Server-side fetch (used by AI transcription)."""
     client = _client()

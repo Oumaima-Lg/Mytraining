@@ -41,8 +41,8 @@ export default function NewInterviewPage() {
 
   async function start() {
     setError("");
-    if (selected.length < 2 || selected.length > 3) {
-      setError("Choisissez entre 2 et 3 modules.");
+    if (selected.length < 1 || selected.length > 3) {
+      setError("Choisissez entre 1 et 3 modules.");
       return;
     }
     setBusy(true);
@@ -87,7 +87,7 @@ export default function NewInterviewPage() {
 
       <div className="card space-y-3">
         <div className="flex items-center justify-between">
-          <h2 className="font-semibold">Modules (2 à 3)</h2>
+          <h2 className="font-semibold">Modules (1 à 3)</h2>
           <span className="text-sm text-gray-400 dark:text-slate-500">
             {selected.length} sélectionné(s)
           </span>

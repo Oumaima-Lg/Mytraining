@@ -18,14 +18,22 @@
   --border: rgba(255, 255, 255, 0.1);
 }
 
+/* Compact, high-density UI: shrinking the root font (~87.5% ≈ "80% zoom")
+   scales every rem-based size — spacing, gaps, padding, type — app-wide at
+   once. Tune this single value to go denser (13px) or roomier (15px). */
+html {
+  font-size: 14px;
+}
+
 body {
   background: var(--bg);
   color: var(--text);
+  line-height: 1.45;
 }
 
 @layer components {
   .btn {
-    @apply inline-flex items-center justify-center gap-2 rounded-lg px-4 py-2 font-medium transition;
+    @apply inline-flex items-center justify-center gap-1.5 rounded-md px-3 py-1.5 text-sm font-medium transition;
   }
   .btn-primary {
     @apply btn bg-brand text-white hover:bg-brand-dark;
@@ -35,18 +43,33 @@ body {
     background: var(--surface);
   }
   .card {
-    @apply rounded-2xl p-6 shadow-sm border;
+    @apply rounded-lg p-4 shadow-sm border;
     background: var(--surface);
     border-color: var(--border);
   }
   .input {
-    @apply w-full rounded-lg border px-3 py-2 outline-none focus:border-brand;
+    @apply w-full rounded-md border px-2.5 py-1.5 text-sm outline-none focus:border-brand;
     background: var(--surface);
     border-color: var(--border);
     color: var(--text);
   }
   .label {
-    @apply block text-sm font-medium mb-1;
+    @apply block text-xs font-medium mb-0.5;
     color: var(--muted);
   }
+}
+
+/* Enter animation for the results video viewer when switching questions. */
+@keyframes viewer-in {
+  from {
+    opacity: 0;
+    transform: translateY(10px) scale(0.985);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+.animate-viewer-in {
+  animation: viewer-in 0.3s cubic-bezier(0.22, 1, 0.36, 1);
 }

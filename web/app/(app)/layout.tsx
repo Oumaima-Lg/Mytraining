@@ -11,11 +11,11 @@ export default function AppLayout({
   return (
     <div className="min-h-screen">
       <header className="border-b border-[var(--border)] bg-[var(--surface)]">
-        <div className="mx-auto flex max-w-5xl items-center justify-between px-4 py-3">
-          <Link href="/" className="text-lg font-bold text-brand">
+        <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-2">
+          <Link href="/" className="text-base font-bold text-brand">
             PrepEntretien
           </Link>
-          <nav className="flex items-center gap-4 text-sm">
+          <nav className="flex items-center gap-3 text-sm">
             <Link
               href="/modules"
               className="text-gray-600 hover:text-brand dark:text-gray-300"
@@ -39,7 +39,7 @@ export default function AppLayout({
           </nav>
         </div>
       </header>
-      <main className="mx-auto max-w-5xl px-4 py-8">{children}</main>
+      <main className="mx-auto max-w-6xl px-4 py-5">{children}</main>
       <ScrollToTop />
     </div>
   );

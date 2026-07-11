@@ -58,6 +58,7 @@ export type RunSummary = {
   id: number;
   interview_id: number;
   interview_name: string;
+  modules: string[];
   status: string;
   started_at: string;
   finished_at: string | null;
